@@ -1,0 +1,210 @@
+{
+  "meta": {
+    "title": "AutoXpert — car parts from several vendors",
+    "description": "Compare and order parts that fit your vehicle, from several vendors, in one place."
+  },
+  "nav": {
+    "parts": "Parts",
+    "vehicles": "My vehicles",
+    "service": "Service log",
+    "favorites": "Saved",
+    "cart": "Cart",
+    "account": "Account",
+    "home": "Home"
+  },
+  "locale": {
+    "fr": "FR",
+    "en": "EN"
+  },
+  "home": {
+    "kicker": "One catalogue, several vendors",
+    "title": "Find a part that matches the vehicle you drive.",
+    "lead": "Choose the year, make, model and engine. AutoXpert then compares offers from NAPA, Canadian Tire, PartSource and our warehouse.",
+    "shop": "See matching parts",
+    "howTitle": "How prices are gathered",
+    "howBody": "Each product page shows the best in-stock price, then the other vendors. You order in one place; the supplier stays on the receipt.",
+    "trustTitle": "Delivery in Quebec and pickup",
+    "trustBody": "Lead times here are prototype estimates. Taxes, live freight and payment are not wired in this version.",
+    "categoriesTitle": "Most requested part types",
+    "vehicleNeeded": "Select a vehicle to filter the catalogue."
+  },
+  "picker": {
+    "year": "Year",
+    "make": "Make",
+    "model": "Model",
+    "engine": "Engine",
+    "placeholder": "Select",
+    "vin": "VIN (optional)",
+    "vinPlaceholder": "2HGFC1F37JH123456",
+    "add": "Add vehicle",
+    "continue": "Continue"
+  },
+  "categories": {
+    "brakes": "Brakes & wheel hub",
+    "filters": "Filters",
+    "oil": "Engine oil",
+    "ignition": "Ignition",
+    "battery": "Battery",
+    "wipers": "Wipers",
+    "cooling": "Cooling system",
+    "suspension": "Suspension",
+    "belts": "Belt drive",
+    "electrical": "Electrical",
+    "exhaust": "Exhaust & emission",
+    "hvac": "Heat & air conditioning",
+    "steering": "Steering",
+    "fuel-air": "Fuel & air"
+  },
+  "catalog": {
+    "title": "Parts for your vehicle",
+    "allVehicles": "Every vehicle in the catalogue",
+    "empty": "No parts in this category for the selected vehicle.",
+    "offers": "{count} offers",
+    "from": "From",
+    "inStock": "In stock",
+    "outOfStock": "Out of stock at this vendor",
+    "brand": "Brand",
+    "price": "Price",
+    "stockFilter": "In stock only",
+    "allBrands": "All brands",
+    "fitment": "Fits"
+  },
+  "product": {
+    "sku": "Part number",
+    "qty": "Quantity",
+    "add": "Add to cart",
+    "buy": "Order here",
+    "favorite": "Save",
+    "unfavorite": "Remove from saved",
+    "vendorsTitle": "Vendor offers",
+    "ships": "Ships in {days, plural, one {# day} other {# days}}",
+    "stock": "{count} in stock",
+    "chooseOffer": "Use this offer",
+    "tabs": {
+      "description": "Description",
+      "specs": "Specifications",
+      "reviews": "Reviews",
+      "warranty": "Warranty & returns"
+    },
+    "reviewsEmpty": "Customer reviews will be wired later. This page is for comparing offers.",
+    "warrantyBody": "Each vendor keeps its own policy. AutoXpert centralizes tracking; return windows stay those of the listed supplier.",
+    "related": "You may also need",
+    "advisorTitle": "A question about this part?",
+    "advisorBody": "An advisor can confirm fitment before you order.",
+    "advisorCta": "Write to an advisor",
+    "compat": "Fitment checked for the selected vehicle."
+  },
+  "cart": {
+    "title": "Your cart",
+    "empty": "The cart is empty. Choose a vehicle, then a part.",
+    "vendor": "Vendor",
+    "qty": "Qty",
+    "remove": "Remove",
+    "subtotal": "Subtotal",
+    "note": "Payment is not wired in this version. Totals are in Canadian dollars.",
+    "continue": "Keep shopping"
+  },
+  "favorites": {
+    "title": "Saved parts",
+    "empty": "No saved parts yet. Use the heart on a product page."
+  },
+  "portal": {
+    "gateTitle": "Customer area",
+    "gateBody": "This version opens the portal without a password. Your vehicles, service log and cart stay in this browser.",
+    "enter": "Enter the portal",
+    "leave": "Leave the portal"
+  },
+  "garage": {
+    "title": "My vehicles",
+    "lead": "Keep your vehicles on file and open recommended parts.",
+    "add": "Add a vehicle",
+    "primary": "Primary vehicle",
+    "year": "Year",
+    "model": "Model",
+    "engine": "Engine",
+    "vin": "VIN",
+    "parts": "Matching parts",
+    "diy": "Install guides",
+    "diyEmpty": "DIY guides will be added in a later version.",
+    "activity": "Recent conversations",
+    "activityEmpty": "No advisor threads yet.",
+    "empty": "No vehicles in the garage. Add one to filter the catalogue and the service log.",
+    "remove": "Remove"
+  },
+  "entretien": {
+    "title": "Service log",
+    "lead": "Add service entries yourself. The history stays in this browser.",
+    "select": "Select a vehicle",
+    "type": "Service type",
+    "date": "Service date",
+    "km": "Odometer",
+    "note": "Optional note",
+    "actions": "Actions",
+    "add": "Add",
+    "intervals": "Reference intervals",
+    "intervalsNote": "These intervals are general references. Check the owner’s manual and how you use the car.",
+    "empty": "No service recorded for this vehicle.",
+    "types": {
+      "oil": "Engine oil and filter",
+      "oil-filter": "Oil filter",
+      "cabin-filter": "Cabin filter",
+      "air-filter": "Air filter",
+      "plugs": "Spark plugs",
+      "coolant": "Coolant",
+      "brakes": "Front brakes",
+      "tires": "Tire rotation",
+      "battery": "Battery",
+      "other": "Other"
+    }
+  },
+  "orders": {
+    "title": "My orders",
+    "lead": "Demo orders attached to the portal. Tracking is not connected to a carrier.",
+    "empty": "No orders yet.",
+    "track": "View tracking",
+    "status": {
+      "processing": "Processing",
+      "shipped": "Shipped",
+      "delivered": "Delivered"
+    }
+  },
+  "account": {
+    "title": "Your account",
+    "lead": "Prototype without real authentication. The portal stores state in the browser.",
+    "open": "Open my vehicles"
+  },
+  "footer": {
+    "blurb": "AutoXpert brings together several vendor catalogues for drivers in Quebec.",
+    "services": "Our services",
+    "company": "Company",
+    "info": "Information",
+    "contact": "Contact",
+    "parts": "Parts",
+    "garage": "Garage",
+    "entretien": "Service log",
+    "about": "About",
+    "vendors": "Vendors",
+    "shipping": "Shipping",
+    "returns": "Returns",
+    "privacy": "Privacy",
+    "phone": "514 555-0198",
+    "email": "hello@autoxpert.example",
+    "rights": "© 2026 AutoXpert. Prototype. All rights reserved."
+  },
+  "common": {
+    "close": "Close",
+    "or": "or"
+  },
+  "chat": {
+    "title": "AutoXpert advisor",
+    "subtitle": "Parts, fitment and service",
+    "placeholder": "Describe the part or the question…",
+    "send": "Send",
+    "close": "Close chat",
+    "thinking": "One moment…",
+    "s1": "Pads for my vehicle",
+    "s2": "Compare rotor prices",
+    "s3": "When should I change the oil?",
+    "s4": "How are vendors gathered?"
+  }
+}

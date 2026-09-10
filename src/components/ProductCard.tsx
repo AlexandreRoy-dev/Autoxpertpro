@@ -1,0 +1,36 @@
+"use client";
+
+import { categories } from "@/data/categories";
+import { bestOffer, type Product } from "@/data/products";
+import { Link } from "@/i18n/navigation";
+import { formatCad } from "@/lib/format";
+import { withBase } from "@/lib/paths";
+import { useLocale, useTranslations } from "next-intl";
+
+export function ProductCard({ product }: { product: Product }) {
+  const locale = useLocale() as "fr" | "en";
+  const t = useTranslations("catalog");
+  const offer = bestOffer(product);
+  const category = categories.find((c) => c.id === product.categoryId)!;
+
+  return (
+    <Link
+      href={`/pieces/${category.slug}/${product.slug}`}
+      className="group overflow-hidden rounded-xl border border-[#ececec] bg-white"
+    >
+      <div className="flex h-44 items-center justify-center bg-white p-6">
+        <img src={withBase(product.image)} alt="" className="h-full w-full object-contain" />
+      </div>
+      <div className="border-t border-[#f0f0f0] p-4">
+        <p className="text-xs uppercase tracking-wide text-black/45">{product.brand}</p>
+        <h3 className="mt-1 text-[15px] font-semibold leading-snug group-hover:text-orange">
+          {product.name[locale]}
+        </h3>
+        <p className="mt-3 text-lg font-semibold">
+          {t("from")} {formatCad(offer.price, locale)}
+        </p>
+        <p className="text-sm text-black/50">{t("offers", { count: product.offers.length })}</p>
+      </div>
+    </Link>
+  );
+}
