@@ -1,0 +1,22 @@
+1:"$Sreact.fragment"
+2:I[95438,["/_next/static/chunks/3fntmmi971322.js","/_next/static/chunks/0iq8l0v10eh57.js","/_next/static/chunks/0is-m72fi5koo.js","/_next/static/chunks/0b-s38fzdbr2l.js","/_next/static/chunks/1kog3z0oq1-j_.js"],"ProductDetail"]
+3:I[97367,["/_next/static/chunks/3fntmmi971322.js"],"OutletBoundary"]
+4:"$Sreact.suspense"
+8:I[97367,["/_next/static/chunks/3fntmmi971322.js"],"ViewportBoundary"]
+9:I[97367,["/_next/static/chunks/3fntmmi971322.js"],"MetadataBoundary"]
+b:I[39756,["/_next/static/chunks/3fntmmi971322.js"],"default"]
+c:I[37457,["/_next/static/chunks/3fntmmi971322.js"],"default"]
+7:X
+e:X
+e:C
+0:{"buildId":"pV5ImUA625sZbfopFxqcA","data":[{"rsc":["$","$1","c",{"children":[["$","$L2",null,{"product":{"id":"pennzoil-0w20","slug":"huile-moteur-0w20","categoryId":"oil","brand":"Pennzoil","partNumber":"550042932","name":{"fr":"Huile moteur 0W-20 synthétique, 5 L","en":"0W-20 synthetic engine oil, 5 L"},"description":{"fr":"Bidon de 5 litres, grade 0W-20, pour les Civic turbo et plusieurs Toyota récents. Suffisant pour une vidange complète.","en":"5-litre jug, 0W-20 grade, for turbo Civics and several recent Toyotas. Enough for a full oil change."},"image":"/parts/oil.svg","specs":[{"key":"grade","label":{"fr":"Grade","en":"Grade"},"value":{"fr":"0W-20","en":"0W-20"}},{"key":"volume","label":{"fr":"Volume","en":"Volume"},"value":{"fr":"5 L","en":"5 L"}}],"fitmentIds":["honda-civic-2018-15t","honda-civic-2016-20","toyota-rav4-2018-25","toyota-corolla-2021-20"],"offers":[{"vendorId":"canadiantire","price":42.99,"stock":30,"shippingDays":1,"sku":"CT-0W20-5L"},{"vendorId":"napa","price":44.99,"stock":12,"shippingDays":2,"sku":"NAPA-0W20"},{"vendorId":"autoxpert","price":39.99,"stock":18,"shippingDays":1,"sku":"AX-0W20-5L"}],"rating":4.8,"reviewCount":340}}],[["$","script","script-0",{"src":"/_next/static/chunks/1kog3z0oq1-j_.js","async":true}]],["$","$L3",null,{"children":["$","$4",null,{"name":"Next.MetadataOutlet","children":"$@5"}]}]]}],"isPartial":"$@6","staleTime":"$7","varyParams":null},{"rsc":["$","$1","h",{"children":[null,["$","$L8",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L9",null,{"children":["$","$4",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"AutoXpert"}],["$","meta","1",{"name":"description","content":"Pièces d’auto de plusieurs marchands, pour le véhicule que vous conduisez."}]]}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],"isPartial":"$@a","staleTime":"$7","varyParams":null},{"rsc":["$","$1","c",{"children":[null,["$","$Lb",null,{"parallelRouterKey":"children","template":["$","$Lc",null,{}]}]]}],"isPartial":"$@d","staleTime":"$7","varyParams":"$e"},{"rsc":["$","$1","c",{"children":[null,["$","$Lb",null,{"parallelRouterKey":"children","template":["$","$Lc",null,{}]}]]}],"isPartial":"$@f","staleTime":"$7","varyParams":"$e"},{"rsc":["$","$1","c",{"children":[null,["$","$Lb",null,{"parallelRouterKey":"children","template":["$","$Lc",null,{}]}]]}],"isPartial":"$@10","staleTime":"$7","varyParams":"$e"}],"isUpgradeableISRFallback":false,"a":"$@11","rootVaryParams":null,"needsRuntimeRequest":"$@12"}
+5:null
+12:true
+7:300
+7:C
+11:0
+a:"$undefined"
+d:"$undefined"
+f:"$undefined"
+10:"$undefined"
+6:"$undefined"
