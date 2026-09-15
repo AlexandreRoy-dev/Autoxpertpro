@@ -1,8 +1,6 @@
-"use client";
-
-import { AnimIn } from "@/components/AnimIn";
 import { Link } from "@/i18n/navigation";
 import { withBase } from "@/lib/paths";
+import { useTranslations } from "next-intl";
 
 export function PageHeader({
   title,
@@ -13,26 +11,39 @@ export function PageHeader({
   lead?: string;
   crumbs?: Array<{ href: "/" | "/pieces" | `/pieces/${string}` | "/panier" | "/compte"; label: string }>;
 }) {
+  const t = useTranslations("nav");
+
   return (
     <section className="page-header">
-      <img src={withBase("/hero/workshop.jpg")} alt="" className="absolute inset-0 h-full w-full object-cover" />
-      <div className="relative z-10 mx-auto max-w-6xl px-4 py-12 md:py-16">
-        <AnimIn>
-          {crumbs?.length ? (
-            <p className="text-sm text-white/55">
-              {crumbs.map((crumb, index) => (
-                <span key={crumb.href}>
-                  {index > 0 ? <span className="px-1.5">/</span> : null}
-                  <Link href={crumb.href as "/pieces"} className="hover:text-white">
-                    {crumb.label}
-                  </Link>
-                </span>
+      <div
+        className="page-header__bg"
+        style={{ backgroundImage: `url(${withBase("/hero/workshop.jpg")})` }}
+      />
+      <div className="container">
+        <div className="page-header__inner">
+          <div className="page-header__img-1">
+            <img src={withBase("/hero/mechanic.png")} alt="" />
+          </div>
+          <h1>{title}</h1>
+          {lead ? <p className="page-header__text" style={{ marginTop: 12 }}>{lead}</p> : null}
+          <div className="thm-breadcrumb__inner">
+            <ul className="thm-breadcrumb list-unstyled">
+              <li>
+                <Link href="/">{t("home")}</Link>
+              </li>
+              {crumbs?.map((crumb) => (
+                <li key={crumb.href}>
+                  <span className="fas fa-angle-right" />
+                  <Link href={crumb.href as "/pieces"}>{crumb.label}</Link>
+                </li>
               ))}
-            </p>
-          ) : null}
-          <h1 className="mt-2 max-w-3xl text-3xl font-semibold leading-tight text-white drop-shadow md:text-4xl">{title}</h1>
-          {lead ? <p className="mt-3 max-w-2xl text-white/70">{lead}</p> : null}
-        </AnimIn>
+              <li>
+                <span className="fas fa-angle-right" />
+                {title}
+              </li>
+            </ul>
+          </div>
+        </div>
       </div>
     </section>
   );

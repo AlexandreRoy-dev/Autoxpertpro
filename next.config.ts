@@ -9,6 +9,7 @@ const nextConfig: NextConfig = {
   basePath,
   assetPrefix: basePath || undefined,
   agentRules: false,
+  output: process.env.GITHUB_PAGES === "1" ? "export" : undefined,
 };
 
 const withNextIntl = createNextIntlPlugin("./src/i18n/request.ts");

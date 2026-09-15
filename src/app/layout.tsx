@@ -1,11 +1,6 @@
-import { DM_Sans } from "next/font/google";
+import { ServixaAssets } from "@/components/ServixaAssets";
 import type { Metadata } from "next";
 import "./globals.css";
-
-const dm = DM_Sans({
-  subsets: ["latin"],
-  variable: "--font-dm",
-});
 
 export const metadata: Metadata = {
   title: "AutoXpert",
@@ -15,7 +10,10 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="fr-CA">
-      <body className={`${dm.variable} antialiased`}>{children}</body>
+      <head>
+        <ServixaAssets />
+      </head>
+      <body className="custom-cursor">{children}</body>
     </html>
   );
 }

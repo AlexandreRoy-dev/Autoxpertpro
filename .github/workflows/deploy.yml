@@ -27,7 +27,10 @@ jobs:
       - name: Build static site
         env:
           NEXT_PUBLIC_BASE_PATH: ""
-        run: npm run build
+          GITHUB_PAGES: "1"
+        run: |
+          rm -rf src/app/api
+          npm run build
       - uses: actions/upload-pages-artifact@v3
         with:
           path: out

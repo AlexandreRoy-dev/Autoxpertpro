@@ -40,7 +40,7 @@ export function VehiclePicker({ onSelect, submitLabel, showVin = false, dark = f
       <label className="text-sm">
         <span className={dark ? "mb-1 block text-white/70" : "mb-1 block text-muted"}>{t("make")}</span>
         <select
-          className="select"
+          className="select ignore"
           value={makeId}
           onChange={(e) => {
             setMakeId(e.target.value);
@@ -60,7 +60,7 @@ export function VehiclePicker({ onSelect, submitLabel, showVin = false, dark = f
       <label className="text-sm">
         <span className={dark ? "mb-1 block text-white/70" : "mb-1 block text-muted"}>{t("year")}</span>
         <select
-          className="select"
+          className="select ignore"
           value={year}
           disabled={!makeId}
           onChange={(e) => {
@@ -80,7 +80,7 @@ export function VehiclePicker({ onSelect, submitLabel, showVin = false, dark = f
       <label className="text-sm">
         <span className={dark ? "mb-1 block text-white/70" : "mb-1 block text-muted"}>{t("model")}</span>
         <select
-          className="select"
+          className="select ignore"
           value={model}
           disabled={!year}
           onChange={(e) => {
@@ -99,7 +99,7 @@ export function VehiclePicker({ onSelect, submitLabel, showVin = false, dark = f
       <label className="text-sm">
         <span className={dark ? "mb-1 block text-white/70" : "mb-1 block text-muted"}>{t("engine")}</span>
         <select
-          className="select"
+          className="select ignore"
           value={fitmentId}
           disabled={!model}
           onChange={(e) => setFitmentId(e.target.value)}

@@ -1,0 +1,137 @@
+:root {
+  --servixa-base: #fa5003;
+  --servixa-base-rgb: 250, 80, 3;
+  --orange: #fa5003;
+}
+
+body.custom-cursor {
+  font-family: Inter, var(--servixa-font), ui-sans-serif, system-ui, sans-serif;
+}
+
+.ax-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: #fff;
+  white-space: nowrap;
+}
+
+.main-menu-two__logo,
+.footer-widget-two__logo {
+  min-width: 190px;
+}
+
+.ax-logo svg {
+  flex: 0 0 auto;
+}
+
+.main-menu-two {
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}
+
+.main-slider-two {
+  position: relative;
+}
+
+.main-slider-two__bg-box:before {
+  background-color: rgba(10, 10, 10, 0.58) !important;
+}
+
+.main-slider-two__content-inner {
+  overflow: visible !important;
+}
+
+.main-slider-two__man img {
+  max-height: 620px;
+  width: auto !important;
+  filter: drop-shadow(0 24px 40px rgba(0, 0, 0, 0.45));
+}
+
+.ax-hero-chat {
+  position: absolute;
+  z-index: 6;
+  right: 6%;
+  top: 46%;
+  width: min(400px, 36vw);
+  transform: translateY(-50%);
+}
+
+.ax-hero-picker {
+  position: relative;
+  z-index: 6;
+  margin: -40px auto 0;
+  max-width: 1100px;
+  padding: 22px 24px 10px;
+  border-radius: 12px;
+  background: rgba(17, 17, 17, 0.82);
+  backdrop-filter: blur(8px);
+}
+
+.ax-hero-picker .input,
+.ax-hero-picker .select {
+  background: rgba(10, 10, 10, 0.72);
+  border-color: rgba(255, 255, 255, 0.16);
+  color: #fff;
+}
+
+.ax-store-page {
+  padding: 70px 0 90px;
+}
+
+.page-header .thm-breadcrumb a {
+  color: inherit;
+}
+
+.ax-mobile-locale {
+  display: flex;
+  gap: 8px;
+  padding: 16px 0 0;
+}
+
+@media (max-width: 1199px) {
+  .ax-hero-chat {
+    right: 2%;
+    width: min(340px, 40vw);
+  }
+}
+
+@media (max-width: 991px) {
+  .ax-hero-chat {
+    position: relative;
+    right: auto;
+    top: auto;
+    width: min(420px, calc(100% - 30px));
+    transform: none;
+    margin: -40px auto 40px;
+  }
+
+  .main-slider-two__man img {
+    max-height: 360px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wow,
+  .float-bob-x,
+  .float-bob-y,
+  .img-bounce,
+  .ripple,
+  .custom-cursor__cursor,
+  .custom-cursor__cursor-two {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .main-slider-two .swiper-slide .main-slider-two__man,
+  .main-slider-two .swiper-slide .main-slider-two__img,
+  .main-slider-two .swiper-slide .main-slider-two__content-inner {
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}

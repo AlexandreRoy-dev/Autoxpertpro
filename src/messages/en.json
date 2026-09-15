@@ -10,7 +10,12 @@
     "favorites": "Saved",
     "cart": "Cart",
     "account": "Account",
-    "home": "Home"
+    "home": "Home",
+    "welcome": "Parts catalogue for drivers in Quebec",
+    "hours": "Mon – Fri: 9:00 – 17:00",
+    "region": "Quebec, Canada",
+    "callAnytime": "Call us",
+    "backTop": "Back to top"
   },
   "locale": {
     "fr": "FR",
@@ -26,7 +31,27 @@
     "trustTitle": "Delivery in Quebec and pickup",
     "trustBody": "Lead times here are prototype estimates. Taxes, live freight and payment are not wired in this version.",
     "categoriesTitle": "Most requested part types",
-    "vehicleNeeded": "Select a vehicle to filter the catalogue."
+    "vehicleNeeded": "Select a vehicle to filter the catalogue.",
+    "slide2Kicker": "A counter mechanic, in the browser",
+    "slide2Title": "Marc compares offers and fitment before you order.",
+    "slide2Lead": "Describe the noise, the part or the service interval. Chat stays on this page, next to the vehicle picker.",
+    "marquee1": "NAPA, Canadian Tire, PartSource and the AutoXpert warehouse",
+    "marquee2": "Filter by year, make, model and engine",
+    "aboutTag": "The catalogue",
+    "aboutTitle": "How AutoXpert brings together catalogues from several vendors.",
+    "aboutBody": "Each product page shows the best in-stock price, then the other vendors. You order in one place; the supplier stays on the receipt.",
+    "aboutPoint1Title": "The vehicle comes first",
+    "aboutPoint1Text": "Year, make, model and engine filter the catalogue before prices appear.",
+    "aboutPoint2Title": "A mechanic for fitment questions",
+    "aboutPoint2Text": "Marc answers from the catalogue and the selected vehicle, without shop slogans.",
+    "servicesTag": "Parts",
+    "serviceCard": "Offers from several vendors, for the selected vehicle.",
+    "allCategories": "See all categories",
+    "whyTag": "Delivery",
+    "whyTitle": "Delivery in Quebec and pickup at the listed vendor.",
+    "vendorsCount": "Vendors gathered",
+    "marcTitle": "Marc, AutoXpert mechanic",
+    "marcBody": "Ask about a part, a noise or a service interval. Answers stay tied to the catalogue."
   },
   "picker": {
     "year": "Year",
@@ -189,7 +214,13 @@
     "privacy": "Privacy",
     "phone": "514 555-0198",
     "email": "hello@autoxpert.example",
-    "rights": "© 2026 AutoXpert. Prototype. All rights reserved."
+    "rights": "© 2026 AutoXpert. Prototype. All rights reserved.",
+    "newsletter": "Follow the catalogue",
+    "newsletterNote": "Newsletters are not wired in this version.",
+    "brakes": "Brakes & wheel hub",
+    "oil": "Engine oil",
+    "filters": "Filters",
+    "battery": "Battery"
   },
   "common": {
     "close": "Close",

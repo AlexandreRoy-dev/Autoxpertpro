@@ -15,6 +15,9 @@
 /.next/
 /out/
 
+# Envato extract (copied into public/servixa)
+/_servixa/
+
 # misc
 .DS_Store
 *.pem

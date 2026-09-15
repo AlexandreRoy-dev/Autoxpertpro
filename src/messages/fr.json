@@ -10,7 +10,12 @@
     "favorites": "Favoris",
     "cart": "Panier",
     "account": "Compte",
-    "home": "Accueil"
+    "home": "Accueil",
+    "welcome": "Catalogue de pièces pour les conducteurs du Québec",
+    "hours": "Lun – Ven : 9 h – 17 h",
+    "region": "Québec, Canada",
+    "callAnytime": "Nous joindre",
+    "backTop": "Retour en haut"
   },
   "locale": {
     "fr": "FR",
@@ -26,7 +31,27 @@
     "trustTitle": "Livraison au Québec et retrait",
     "trustBody": "Les délais affichés sont des estimations de prototype. Les taxes, le transport réel et le paiement ne sont pas branchés dans cette version.",
     "categoriesTitle": "Types de pièces les plus demandés",
-    "vehicleNeeded": "Sélectionnez un véhicule pour filtrer le catalogue."
+    "vehicleNeeded": "Sélectionnez un véhicule pour filtrer le catalogue.",
+    "slide2Kicker": "Un mécanicien au comptoir, dans le navigateur",
+    "slide2Title": "Marc compare les offres et la compatibilité avant que vous commandiez.",
+    "slide2Lead": "Décrivez le bruit, la pièce ou l’entretien. Le clavardage reste sur cette page, à côté du sélecteur de véhicule.",
+    "marquee1": "NAPA, Canadian Tire, PartSource et l’entrepôt AutoXpert",
+    "marquee2": "Filtrage par année, marque, modèle et moteur",
+    "aboutTag": "Le catalogue",
+    "aboutTitle": "Comment AutoXpert réunit les catalogues de plusieurs marchands.",
+    "aboutBody": "Chaque fiche affiche le meilleur prix en stock, puis les autres marchands. Vous commandez au même endroit; le fournisseur reste indiqué sur le bon.",
+    "aboutPoint1Title": "Le véhicule d’abord",
+    "aboutPoint1Text": "Année, marque, modèle et moteur filtrent le catalogue avant l’affichage des prix.",
+    "aboutPoint2Title": "Un mécanicien pour les questions de compatibilité",
+    "aboutPoint2Text": "Marc répond à partir du catalogue et du véhicule choisi, sans slogan de garage.",
+    "servicesTag": "Pièces",
+    "serviceCard": "Offres de plusieurs marchands, pour le véhicule sélectionné.",
+    "allCategories": "Voir toutes les catégories",
+    "whyTag": "Livraison",
+    "whyTitle": "Livraison au Québec et retrait chez le marchand indiqué.",
+    "vendorsCount": "Marchands réunis",
+    "marcTitle": "Marc, mécanicien AutoXpert",
+    "marcBody": "Posez une question de pièce, de bruit ou d’entretien. Les réponses restent liées au catalogue."
   },
   "picker": {
     "year": "Année",
@@ -189,7 +214,13 @@
     "privacy": "Confidentialité",
     "phone": "514 555-0198",
     "email": "bonjour@autoxpert.example",
-    "rights": "© 2026 AutoXpert. Prototype. Tous droits réservés."
+    "rights": "© 2026 AutoXpert. Prototype. Tous droits réservés.",
+    "newsletter": "Suivre le catalogue",
+    "newsletterNote": "Les infolettres ne sont pas branchées dans cette version.",
+    "brakes": "Freins et moyeux",
+    "oil": "Huile moteur",
+    "filters": "Filtres",
+    "battery": "Batterie"
   },
   "common": {
     "close": "Fermer",
