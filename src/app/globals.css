@@ -1,11 +1,13 @@
 @import "tailwindcss";
 
 :root {
-  --orange: #f15a22;
+  --orange: #fa5003;
   --orange-dark: #d44814;
   --ink: #111111;
   --muted: #5c5c5c;
   --line: #e6e6e6;
+  --paper: #f6f3ef;
+  --workshop: #0a0a0a;
   --portal: #0b1220;
   --portal-card: #141b2b;
   --portal-line: #243049;
@@ -15,6 +17,8 @@
 @theme inline {
   --color-orange: var(--orange);
   --color-ink: var(--ink);
+  --color-paper: var(--paper);
+  --color-workshop: var(--workshop);
   --color-portal: var(--portal);
   --font-sans: var(--font-dm), ui-sans-serif, system-ui, sans-serif;
 }
@@ -26,20 +30,26 @@ html {
 body {
   font-family: var(--font-sans);
   color: var(--ink);
-  background: #fff;
+  background: var(--paper);
 }
 
 @keyframes fade-up {
   from {
+    opacity: 0;
     transform: translateY(50px);
   }
   to {
+    opacity: 1;
     transform: translateY(0);
   }
 }
 
+.anim-in {
+  opacity: 0;
+}
+
 .anim-in.is-in {
-  animation: fade-up 0.7s var(--ease);
+  animation: fade-up 0.7s var(--ease) both;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -47,14 +57,17 @@ body {
     scroll-behavior: auto;
   }
 
-  .anim-in {
+  .anim-in,
+  .anim-in.is-in {
     opacity: 1;
     transform: none;
+    animation: none;
     transition: none;
   }
 
   .atmosphere,
-  .atmosphere * {
+  .atmosphere *,
+  .hero-wash {
     animation: none !important;
     transform: none !important;
   }
@@ -118,6 +131,19 @@ body {
   font-size: 0.95rem;
 }
 
+.hero-form .input,
+.hero-form .select,
+.chat-panel .input {
+  background: rgba(10, 10, 10, 0.72);
+  border-color: rgba(255, 255, 255, 0.16);
+  color: #fff;
+}
+
+.hero-form .select option,
+.chat-panel .input::placeholder {
+  color: rgba(255, 255, 255, 0.45);
+}
+
 .portal .input,
 .portal .select {
   background: #101827;
@@ -134,7 +160,14 @@ body {
   padding: 0.75rem 1.1rem;
   font-weight: 600;
   font-size: 0.95rem;
-  transition: background 0.2s var(--ease), color 0.2s var(--ease);
+  transition:
+    background 0.2s var(--ease),
+    color 0.2s var(--ease),
+    transform 0.2s var(--ease);
+}
+
+.btn:active {
+  transform: scale(0.98);
 }
 
 .btn-orange {
@@ -154,4 +187,23 @@ body {
 .btn-dark {
   background: #111;
   color: #fff;
+}
+
+.surface-card {
+  background: #fff;
+  box-shadow: 0 18px 40px rgba(17, 17, 17, 0.06);
+}
+
+.page-header {
+  position: relative;
+  overflow: hidden;
+  background: var(--workshop);
+  color: #fff;
+}
+
+.page-header::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(10, 10, 10, 0.82) 0%, rgba(10, 10, 10, 0.48) 60%, rgba(10, 10, 10, 0.22) 100%);
 }

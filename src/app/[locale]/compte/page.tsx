@@ -15,7 +15,8 @@ export default function AccountPage() {
     <PortalChrome>
       <PortalGate>
         <div className="mx-auto max-w-3xl px-4 py-16">
-          <h1 className="text-3xl font-semibold">{t("title")}</h1>
+          <p className="text-sm font-medium text-orange">AutoXpert</p>
+          <h1 className="mt-2 text-3xl font-semibold">{t("title")}</h1>
           <p className="mt-3 text-white/65">{t("lead")}</p>
           <div className="mt-8 flex flex-wrap gap-3">
             <Link href="/compte/vehicules" className="btn btn-orange">

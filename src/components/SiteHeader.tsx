@@ -12,7 +12,6 @@ export function SiteHeader({ variant }: { variant: "storefront" | "portal" }) {
   const { cartCount, favorites } = useStore();
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
-  const light = true;
 
   const links = [
     { href: "/pieces" as const, label: t("parts") },
@@ -22,15 +21,19 @@ export function SiteHeader({ variant }: { variant: "storefront" | "portal" }) {
   ];
 
   return (
-    <header className="sticky top-0 z-40 bg-[#0a0a0a] text-white">
-      <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3">
-        <Logo light={light} />
-        <nav className="hidden items-center gap-6 text-sm md:flex">
+    <header className="sticky top-0 z-40 border-t-2 border-orange bg-[#0a0a0a] text-white">
+      <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3.5">
+        <Logo light />
+        <nav className="hidden items-center gap-7 text-sm md:flex">
           {links.map((link) => (
             <Link
               key={link.href}
               href={link.href}
-              className={pathname.startsWith(link.href) ? "text-orange" : "text-white/80 hover:text-white"}
+              className={
+                pathname.startsWith(link.href)
+                  ? "font-semibold text-orange"
+                  : "text-white/75 hover:text-white"
+              }
             >
               {link.label}
               {link.href === "/compte/favoris" && favorites.length > 0 ? (

@@ -4,7 +4,7 @@ import { SiteHeader } from "@/components/SiteHeader";
 
 export function StorefrontChrome({ children }: { children: React.ReactNode }) {
   return (
-    <div className="relative isolate min-h-screen bg-white">
+    <div className="relative isolate min-h-screen bg-paper">
       <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden">
         <Atmosphere variant="light" />
       </div>

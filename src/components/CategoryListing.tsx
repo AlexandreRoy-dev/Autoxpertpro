@@ -1,6 +1,7 @@
 "use client";
 
 import { AnimIn } from "@/components/AnimIn";
+import { PageHeader } from "@/components/PageHeader";
 import { ProductCard } from "@/components/ProductCard";
 import { StorefrontChrome } from "@/components/StorefrontChrome";
 import type { Category } from "@/data/categories";
@@ -13,6 +14,7 @@ import { useMemo, useState } from "react";
 export function CategoryListing({ category }: { category: Category }) {
   const t = useTranslations("catalog");
   const tc = useTranslations("categories");
+  const tn = useTranslations("nav");
   const { selectedFitmentId } = useStore();
   const vehicle = selectedFitmentId ? getVehicle(selectedFitmentId) : null;
   const [brand, setBrand] = useState("all");
@@ -32,14 +34,16 @@ export function CategoryListing({ category }: { category: Category }) {
 
   return (
     <StorefrontChrome>
+      <PageHeader
+        title={tc(category.id)}
+        lead={vehicle ? `${vehicle.year} ${vehicle.make} ${vehicle.model}` : t("allVehicles")}
+        crumbs={[
+          { href: "/pieces", label: tn("parts") },
+          { href: `/pieces/${category.slug}`, label: tc(category.id) },
+        ]}
+      />
       <div className="mx-auto max-w-6xl px-4 py-12">
-        <AnimIn>
-          <p className="text-sm text-black/45">
-            {vehicle ? `${vehicle.year} ${vehicle.make} ${vehicle.model}` : t("allVehicles")}
-          </p>
-          <h1 className="mt-2 text-3xl font-semibold">{tc(category.id)}</h1>
-        </AnimIn>
-        <div className="mt-6 flex flex-wrap gap-3">
+        <div className="flex flex-wrap gap-3">
           <select className="select max-w-xs" value={brand} onChange={(e) => setBrand(e.target.value)}>
             <option value="all">{t("allBrands")}</option>
             {brands.map((name) => (

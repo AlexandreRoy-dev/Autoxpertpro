@@ -4,7 +4,7 @@ import { SiteHeader } from "@/components/SiteHeader";
 
 export function PortalChrome({ children }: { children: React.ReactNode }) {
   return (
-    <div className="portal relative isolate min-h-screen bg-portal text-white">
+    <div className="portal relative isolate min-h-screen bg-workshop text-white">
       <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden">
         <Atmosphere variant="dark" />
       </div>

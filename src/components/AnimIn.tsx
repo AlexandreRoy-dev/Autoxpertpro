@@ -44,7 +44,7 @@ export function AnimIn({
   }, []);
 
   return (
-    <div ref={ref} className={`anim-in ${className}`} style={{ transitionDelay: `${delay}s` }}>
+    <div ref={ref} className={`anim-in ${className}`} style={{ animationDelay: `${delay}s` }}>
       {children}
     </div>
   );

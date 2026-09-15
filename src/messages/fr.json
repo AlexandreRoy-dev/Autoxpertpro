@@ -90,8 +90,8 @@
     "warrantyBody": "Chaque marchand applique sa propre politique. AutoXpert centralise le suivi; les délais de retour restent ceux du fournisseur indiqué.",
     "related": "Vous pourriez aussi avoir besoin",
     "advisorTitle": "Une question sur cette pièce?",
-    "advisorBody": "Un conseiller peut confirmer la compatibilité avant que vous commandiez.",
-    "advisorCta": "Écrire au conseiller",
+    "advisorBody": "Marc peut confirmer la compatibilité avant que vous commandiez.",
+    "advisorCta": "Écrire à Marc",
     "compat": "Compatibilité vérifiée pour le véhicule sélectionné."
   },
   "cart": {
@@ -196,12 +196,13 @@
     "or": "ou"
   },
   "chat": {
-    "title": "Conseiller AutoXpert",
+    "title": "Marc, mécanicien AutoXpert",
     "subtitle": "Pièces, compatibilité et entretien",
     "placeholder": "Décrivez la pièce ou la question…",
     "send": "Envoyer",
     "close": "Fermer le clavardage",
     "thinking": "Un instant…",
+    "portraitAlt": "Marc, le mécanicien-conseiller AutoXpert",
     "s1": "Plaquettes pour mon véhicule",
     "s2": "Comparez les prix des disques",
     "s3": "Quand faire la vidange?",

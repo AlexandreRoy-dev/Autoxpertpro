@@ -1,6 +1,7 @@
 "use client";
 
 import { AnimIn } from "@/components/AnimIn";
+import { PageHeader } from "@/components/PageHeader";
 import { StorefrontChrome } from "@/components/StorefrontChrome";
 import { getCategory } from "@/data/categories";
 import { bestOffer, similarProducts, type Product } from "@/data/products";
@@ -39,20 +40,24 @@ export function ProductDetail({ product }: { product: Product }) {
 
   return (
     <StorefrontChrome>
+      <PageHeader
+        title={product.name[locale]}
+        lead={`${product.brand} · ${t("sku")} ${product.partNumber}`}
+        crumbs={[
+          { href: "/pieces", label: locale === "fr" ? "Pièces" : "Parts" },
+          { href: `/pieces/${category.slug}`, label: category.slug },
+        ]}
+      />
       <div className="mx-auto max-w-6xl px-4 py-10">
-        <p className="text-sm text-black/45">
-          <Link href="/pieces">Pièces</Link> /{" "}
-          <Link href={`/pieces/${category.slug}`}>{category.slug}</Link>
-        </p>
-        <div className="mt-6 grid gap-10 lg:grid-cols-[1fr_1fr]">
-          <AnimIn className="flex items-center justify-center rounded-2xl border border-[#ececec] bg-white p-10">
+        <div className="grid gap-10 lg:grid-cols-[1fr_1fr]">
+          <AnimIn className="surface-card flex items-center justify-center rounded-2xl bg-[#f3eee8] p-10">
             <img src={withBase(product.image)} alt="" className="max-h-[360px] w-full object-contain" />
           </AnimIn>
           <AnimIn delay={0.25}>
             <p className="text-sm text-black/50">
               {product.brand} · {t("sku")} {product.partNumber}
             </p>
-            <h1 className="mt-2 text-3xl font-semibold leading-tight">{product.name[locale]}</h1>
+            <h2 className="mt-2 text-3xl font-semibold leading-tight">{product.name[locale]}</h2>
             {vehicle ? (
               <p className="mt-3 text-sm text-black/55">
                 {tc("fitment")} {vehicle.year} {vehicle.make} {vehicle.model}
@@ -100,7 +105,7 @@ export function ProductDetail({ product }: { product: Product }) {
             </p>
 
             <h2 className="mt-8 text-lg font-semibold">{t("vendorsTitle")}</h2>
-            <div className="mt-3 divide-y divide-[#eee] rounded-xl border border-[#ececec]">
+            <div className="surface-card mt-3 divide-y divide-[#eee] rounded-xl">
               {sortedOffers.map((item) => (
                 <button
                   key={item.vendorId}
@@ -166,7 +171,7 @@ export function ProductDetail({ product }: { product: Product }) {
                   <Link
                     key={item.id}
                     href={`/pieces/${itemCat.slug}/${item.slug}`}
-                    className="rounded-xl border border-[#ececec] bg-white p-4"
+                    className="surface-card rounded-2xl p-4"
                   >
                     <img src={withBase(item.image)} alt="" className="mx-auto h-28 object-contain" />
                     <p className="mt-3 text-sm font-semibold">{item.name[locale]}</p>
@@ -178,7 +183,7 @@ export function ProductDetail({ product }: { product: Product }) {
           </section>
         ) : null}
 
-        <section className="mb-12 flex flex-col items-start justify-between gap-4 rounded-2xl bg-[#111] p-6 text-white md:flex-row md:items-center">
+        <section className="mb-12 flex flex-col items-start justify-between gap-4 overflow-hidden rounded-2xl bg-workshop p-6 text-white md:flex-row md:items-center">
           <div>
             <h2 className="text-xl font-semibold">{t("advisorTitle")}</h2>
             <p className="mt-1 text-white/65">{t("advisorBody")}</p>

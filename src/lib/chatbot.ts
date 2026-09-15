@@ -231,8 +231,8 @@ export function greeting(ctx: ChatContext): ChatReply {
   const fr = ctx.locale === "fr";
   return {
     text: fr
-      ? `Je peux comparer les offres et confirmer la compatibilité. Véhicule en cours : ${vehicleLine(ctx.vehicle, ctx.locale)}.`
-      : `I can compare offers and check fitment. Current vehicle: ${vehicleLine(ctx.vehicle, ctx.locale)}.`,
+      ? `Marc, mécanicien AutoXpert. Je compare les offres et je confirme la compatibilité. Véhicule en cours : ${vehicleLine(ctx.vehicle, ctx.locale)}.`
+      : `Marc, AutoXpert mechanic. I compare offers and check fitment. Current vehicle: ${vehicleLine(ctx.vehicle, ctx.locale)}.`,
   };
 }
 

@@ -6,8 +6,9 @@ export function SiteFooter() {
   const t = useTranslations("footer");
 
   return (
-    <footer className="bg-[#0a0a0a] text-white">
-      <div className="mx-auto grid max-w-6xl gap-10 px-4 py-14 md:grid-cols-4">
+    <footer className="relative overflow-hidden bg-[#0a0a0a] text-white">
+      <div className="absolute inset-x-0 top-0 h-px bg-orange" />
+      <div className="mx-auto grid max-w-6xl gap-10 px-4 py-16 md:grid-cols-4">
         <div>
           <Logo light />
           <p className="mt-4 max-w-xs text-sm text-white/65">{t("blurb")}</p>

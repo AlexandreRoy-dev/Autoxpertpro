@@ -90,8 +90,8 @@
     "warrantyBody": "Each vendor keeps its own policy. AutoXpert centralizes tracking; return windows stay those of the listed supplier.",
     "related": "You may also need",
     "advisorTitle": "A question about this part?",
-    "advisorBody": "An advisor can confirm fitment before you order.",
-    "advisorCta": "Write to an advisor",
+    "advisorBody": "Marc can confirm fitment before you order.",
+    "advisorCta": "Write to Marc",
     "compat": "Fitment checked for the selected vehicle."
   },
   "cart": {
@@ -196,12 +196,13 @@
     "or": "or"
   },
   "chat": {
-    "title": "AutoXpert advisor",
+    "title": "Marc, AutoXpert mechanic",
     "subtitle": "Parts, fitment and service",
     "placeholder": "Describe the part or the question…",
     "send": "Send",
     "close": "Close chat",
     "thinking": "One moment…",
+    "portraitAlt": "Marc, the AutoXpert counter mechanic",
     "s1": "Pads for my vehicle",
     "s2": "Compare rotor prices",
     "s3": "When should I change the oil?",

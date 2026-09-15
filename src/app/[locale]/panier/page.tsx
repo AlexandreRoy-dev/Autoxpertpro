@@ -1,5 +1,6 @@
 "use client";
 
+import { PageHeader } from "@/components/PageHeader";
 import { StorefrontChrome } from "@/components/StorefrontChrome";
 import { getCategory } from "@/data/categories";
 import { getProduct } from "@/data/products";
@@ -18,9 +19,8 @@ export default function CartPage() {
   if (!hydrated) {
     return (
       <StorefrontChrome>
-        <div className="mx-auto max-w-4xl px-4 py-12">
-          <h1 className="text-3xl font-semibold">{t("title")}</h1>
-        </div>
+        <PageHeader title={t("title")} />
+        <div className="mx-auto max-w-4xl px-4 py-12" />
       </StorefrontChrome>
     );
   }
@@ -39,23 +39,23 @@ export default function CartPage() {
 
   return (
     <StorefrontChrome>
+      <PageHeader title={t("title")} />
       <div className="mx-auto max-w-4xl px-4 py-12">
-        <h1 className="text-3xl font-semibold">{t("title")}</h1>
         {rows.length === 0 ? (
-          <p className="mt-6 text-black/60">
+          <p className="text-black/60">
             {t("empty")}{" "}
             <Link href="/pieces" className="text-orange">
               {t("continue")}
             </Link>
           </p>
         ) : (
-          <div className="mt-8 space-y-4">
+          <div className="space-y-4">
             {rows.map(({ item, product, offer }) => {
               const category = getCategory(product.categoryId)!;
               return (
                 <div
                   key={`${item.productId}-${item.vendorId}`}
-                  className="flex flex-col gap-4 rounded-xl border border-[#ececec] p-4 sm:flex-row sm:items-center"
+                  className="surface-card flex flex-col gap-4 rounded-2xl p-4 sm:flex-row sm:items-center"
                 >
                   <img src={withBase(product.image)} alt="" className="h-20 w-20 object-contain" />
                   <div className="flex-1">
