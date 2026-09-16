@@ -120,7 +120,7 @@
       delayBeforeStart: 0,
       direction: 'left',
       duplicated: true,
-      pauseOnHover: true,
+      pauseOnHover: false,
       startVisible: true,
     });
   }
@@ -132,7 +132,7 @@
       delayBeforeStart: 0,
       direction: 'left',
       duplicated: true,
-      pauseOnHover: true,
+      pauseOnHover: false,
       startVisible: true,
     });
   }
@@ -143,7 +143,7 @@
       delayBeforeStart: 0,
       direction: 'left',
       duplicated: true,
-      pauseOnHover: true,
+      pauseOnHover: false,
       startVisible: true,
     });
   }

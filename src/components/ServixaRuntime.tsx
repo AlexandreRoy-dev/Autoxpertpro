@@ -92,7 +92,7 @@ function refreshMotion() {
         delayBeforeStart: 0,
         direction: "left",
         duplicated: true,
-        pauseOnHover: true,
+        pauseOnHover: false,
         startVisible: true,
       });
     });

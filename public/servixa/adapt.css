@@ -252,10 +252,6 @@ body {
   animation: ax-vendor-scroll 36s linear infinite;
 }
 
-.ax-vendors:hover .ax-vendors__track {
-  animation-play-state: paused;
-}
-
 .ax-vendors__mark {
   display: grid;
   place-items: center;
