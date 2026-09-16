@@ -34,7 +34,8 @@ export function CategoryListing({ category }: { category: Category }) {
 
   return (
     <StorefrontChrome>
-      <div className="mx-auto max-w-6xl px-4 py-8">
+      <div className="ax-store-page">
+      <div className="container">
         <CatalogCrumbs
           items={[
             { href: "/pieces", label: tn("parts") },
@@ -70,6 +71,7 @@ export function CategoryListing({ category }: { category: Category }) {
             ))}
           </div>
         )}
+      </div>
       </div>
     </StorefrontChrome>
   );

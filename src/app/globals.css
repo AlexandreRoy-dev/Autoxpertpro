@@ -8,8 +8,8 @@
   --ink: #f4f4f4;
   --muted: #cacbd3;
   --line: rgba(255, 255, 255, 0.1);
-  --paper: #2a2a2a;
-  --workshop: #2a2a2a;
+  --paper: #161616;
+  --workshop: #161616;
   --portal: #0a0a0a;
   --portal-card: #0a0a0a;
   --portal-line: rgba(255, 255, 255, 0.1);
@@ -32,7 +32,7 @@ html {
 body {
   font-family: Inter, var(--servixa-font), ui-sans-serif, system-ui, sans-serif;
   color: #cacbd3;
-  background-color: #2a2a2a;
+  background-color: #161616;
 }
 
 @keyframes fade-up {

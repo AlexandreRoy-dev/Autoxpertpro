@@ -8,7 +8,7 @@ html,
 body,
 body.boxed-wrapper .page-wrapper,
 .page-wrapper {
-  background-color: #2a2a2a;
+  background-color: #161616;
   background-image: url("../textures/dark-gray.svg");
   background-size: 480px 480px;
   background-repeat: repeat;
@@ -42,6 +42,16 @@ body {
   position: sticky;
   top: 0;
   z-index: 999;
+}
+
+.page-wrapper:not(:has(.main-slider)):not(:has(.page-header)) .main-header {
+  position: sticky;
+  top: 0;
+  background: #141414;
+}
+
+.page-wrapper:not(:has(.main-slider)):not(:has(.page-header)) .main-menu {
+  background: #141414;
 }
 
 .main-slider .swiper-slide-active .main-slider__sub-title,
@@ -660,7 +670,7 @@ body {
 }
 
 .ax-store-page {
-  padding: 36px 0 90px;
+  padding: 28px 0 90px;
 }
 
 .ax-crumbs {
