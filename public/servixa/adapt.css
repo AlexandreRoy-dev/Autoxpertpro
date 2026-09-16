@@ -126,31 +126,46 @@ body {
   display: inline;
 }
 
-.main-slider__content {
-  max-width: 640px;
-  padding-bottom: 48px;
+.ax-entry {
+  position: relative;
+  z-index: 2;
+  padding: 36px 0 48px;
 }
 
-.main-slider__picker {
-  margin-top: 28px;
-  max-width: 520px;
-  padding: 18px 18px 8px;
-  border-radius: 12px;
-  background: rgba(17, 17, 17, 0.78);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+.ax-entry__col {
+  display: grid;
+  gap: 20px;
+  max-width: 560px;
 }
 
-.main-slider__picker .input,
-.main-slider__picker .select {
-  background: rgba(10, 10, 10, 0.72);
+.ax-entry__card {
+  padding: 22px 22px 16px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 24px;
+  background: #0a0a0a;
+}
+
+.ax-entry__card .input,
+.ax-entry__card .select {
+  background: #111;
   border-color: rgba(255, 255, 255, 0.16);
   color: #fff;
 }
 
-.main-slider__picked {
-  margin: 8px 0 12px;
-  color: rgba(255, 255, 255, 0.55);
+.ax-entry__picked {
+  margin: 8px 0 4px;
+  color: rgba(255, 255, 255, 0.5);
   font-size: 13px;
+}
+
+.ax-entry .ax-chat {
+  height: auto;
+  min-height: 0;
+  border: 0;
+  background: transparent;
+  padding: 0;
+  box-shadow: none;
+  backdrop-filter: none;
 }
 
 .ax-picker-presets__list {

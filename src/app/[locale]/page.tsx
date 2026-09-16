@@ -31,65 +31,28 @@ export default function HomePage() {
 
   return (
     <StorefrontChrome>
-      <section className="main-slider">
-        <div className="swiper-container">
-          <div className="swiper-wrapper">
-            <div className="swiper-slide swiper-slide-active">
-              <div className="main-slider__bg" />
-              <div className="main-slider__img">
-                <img src={withBase("/cutouts/hero-car.png")} alt="" />
-              </div>
-              <div className="main-slider__shape-1" />
-              <div className="main-slider__shape-2" />
-              <div className="main-slider__shape-3" />
-              <div className="main-slider__shape-4" />
-              <div className="main-slider__shape-5">
-                <img src={servixaAsset("images/shapes/main-slider-shape-5.png")} alt="" />
-              </div>
-              <div className="main-slider__shape-6">
-                <img src={servixaAsset("images/shapes/main-slider-shape-6.png")} alt="" className="rotate-me" />
-              </div>
-              <div className="container">
-                <div className="row">
-                  <div className="col-xl-12">
-                    <div className="main-slider__content">
-                      <h4 className="main-slider__sub-title">{t("kicker")}</h4>
-                      <h2 className="main-slider__title">{t("title")}</h2>
-                      <p className="main-slider__text">{t("lead")}</p>
-                      <div className="main-slider__btn-and-review-box">
-                        <div className="main-slider__btn-box">
-                          <Link href="/pieces" className="thm-btn">
-                            {t("shop")}
-                            <span>
-                              <i className="icon-next" />
-                            </span>
-                          </Link>
-                        </div>
-                      </div>
-                      <div className="main-slider__picker hero-form">
-                        <VehiclePicker
-                          dark
-                          initialFitmentId={selectedFitmentId}
-                          presets={garage}
-                          submitLabel={tp("continue")}
-                          onSelect={(id) => {
-                            setSelectedFitment(id);
-                            router.push("/pieces");
-                          }}
-                        />
-                        <p className="main-slider__picked">
-                          {selected
-                            ? `${selected.year} ${selected.make} ${selected.model} · ${selected.engine}`
-                            : t("vehicleNeeded")}
-                        </p>
-                      </div>
-                      <div className="main-slider__chat">
-                        <ChatPanel variant="hero" />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+      <section className="ax-entry">
+        <div className="container">
+          <div className="ax-entry__col">
+            <div className="ax-entry__card hero-form">
+              <VehiclePicker
+                dark
+                initialFitmentId={selectedFitmentId}
+                presets={garage}
+                submitLabel={tp("continue")}
+                onSelect={(id) => {
+                  setSelectedFitment(id);
+                  router.push("/pieces");
+                }}
+              />
+              <p className="ax-entry__picked">
+                {selected
+                  ? `${selected.year} ${selected.make} ${selected.model} · ${selected.engine}`
+                  : t("vehicleNeeded")}
+              </p>
+            </div>
+            <div className="ax-entry__card">
+              <ChatPanel variant="hero" />
             </div>
           </div>
         </div>
