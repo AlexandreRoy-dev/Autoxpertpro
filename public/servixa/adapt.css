@@ -4,6 +4,16 @@
   --orange: #fa5003;
 }
 
+html,
+body,
+body.boxed-wrapper .page-wrapper,
+.page-wrapper {
+  background-color: #2a2a2a;
+  background-image: url("../textures/dark-gray.svg");
+  background-size: 480px 480px;
+  background-repeat: repeat;
+}
+
 body {
   font-family: Inter, var(--servixa-font), ui-sans-serif, system-ui, sans-serif;
 }
@@ -181,62 +191,72 @@ body {
   padding-top: 88px;
 }
 
-.brand-one {
-  margin-top: 0;
+.about-one {
+  padding-bottom: 48px;
 }
 
-.brand-one__inner.ax-brands {
+.ax-vendors {
+  position: relative;
   overflow: hidden;
-  padding: 22px 0;
-  background: #0a0a0a;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 12px;
+  padding: 56px 0 72px;
 }
 
-.ax-brands__viewport {
-  overflow: hidden;
-}
-
-.ax-brands__track {
+.ax-vendors__track {
   display: flex;
   align-items: center;
-  gap: 64px;
+  gap: 96px;
   width: max-content;
   margin: 0;
-  animation: ax-brand-scroll 28s linear infinite;
+  padding: 12px 0;
+  animation: ax-vendor-scroll 36s linear infinite;
 }
 
-.ax-brands__item {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 56px;
-  min-width: 180px;
+.ax-vendors:hover .ax-vendors__track {
+  animation-play-state: paused;
 }
 
-.ax-brands__item img {
-  height: 44px;
+.ax-vendors__mark {
+  display: grid;
+  place-items: center;
+  min-width: 160px;
+}
+
+.ax-vendors__mark img {
+  display: block;
   width: auto;
-  max-width: 220px;
+  height: auto;
+  max-width: 200px;
+  max-height: 58px;
   object-fit: contain;
+  opacity: 0.4;
+  filter: grayscale(0.12);
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .ax-brands__track {
-    animation: none;
-    flex-wrap: wrap;
-    justify-content: center;
-    width: 100%;
-    gap: 32px;
-  }
+.ax-vendors__mark.is-napa img {
+  max-height: 72px;
 }
 
-@keyframes ax-brand-scroll {
+.ax-vendors__mark.is-partsource img {
+  max-width: 220px;
+  max-height: 46px;
+}
+
+@keyframes ax-vendor-scroll {
   from {
     transform: translateX(0);
   }
   to {
     transform: translateX(-33.333%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ax-vendors__track {
+    animation: none;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    gap: 40px;
   }
 }
 
