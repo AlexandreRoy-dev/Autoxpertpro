@@ -7,7 +7,7 @@ import { StorefrontChrome } from "@/components/StorefrontChrome";
 import { VehiclePicker } from "@/components/VehiclePicker";
 import { categories } from "@/data/categories";
 import { posts } from "@/data/posts";
-import { categoryStock, stock, texture } from "@/data/stock";
+import { categoryStock, stock } from "@/data/stock";
 import { getVehicle } from "@/data/vehicles";
 import { Link, useRouter } from "@/i18n/navigation";
 import { servixaAsset } from "@/lib/servixa";
