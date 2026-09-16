@@ -1,7 +1,7 @@
 "use client";
 
 import { AnimIn } from "@/components/AnimIn";
-import { PageHeader } from "@/components/PageHeader";
+import { CatalogCrumbs } from "@/components/CatalogCrumbs";
 import { StorefrontChrome } from "@/components/StorefrontChrome";
 import { categories } from "@/data/categories";
 import { productsForVehicle } from "@/data/products";
@@ -22,14 +22,17 @@ export default function PiecesIndexPage() {
 
   return (
     <StorefrontChrome>
-      <PageHeader
-        title={t("title")}
-        lead={vehicle ? `${vehicle.year} ${vehicle.make} ${vehicle.model} · ${vehicle.engine}` : t("allVehicles")}
-      />
-      <div className="mx-auto max-w-6xl px-4 py-12">
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      <section className="ax-store-page">
+        <div className="container">
+        <CatalogCrumbs items={[{ href: "/pieces", label: t("title") }]} />
+        <h1 className="ax-store-title">{t("title")}</h1>
+        <p className="ax-store-lead">
+          {vehicle ? `${vehicle.year} ${vehicle.make} ${vehicle.model} · ${vehicle.engine}` : t("allVehicles")}
+        </p>
+        <div className="row">
           {visible.map((category, index) => (
-            <AnimIn key={category.id} delay={index * 0.06}>
+            <div className="col-xl-4 col-md-6" key={category.id} style={{ marginBottom: 24 }}>
+            <AnimIn delay={index * 0.06}>
               <Link
                 href={`/pieces/${category.slug}`}
                 className="surface-card block rounded-2xl p-5 transition hover:-translate-y-0.5 hover:text-orange"
@@ -41,9 +44,11 @@ export default function PiecesIndexPage() {
                 </p>
               </Link>
             </AnimIn>
+            </div>
           ))}
         </div>
-      </div>
+        </div>
+      </section>
     </StorefrontChrome>
   );
 }

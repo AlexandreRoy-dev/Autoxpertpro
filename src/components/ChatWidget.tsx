@@ -11,8 +11,9 @@ export function ChatWidget() {
   const pathname = usePathname();
   const { open, setOpen } = useChat();
   const onHome = pathname === "/";
+  const onPortal = pathname === "/compte" || pathname.startsWith("/compte/");
 
-  if (onHome) return null;
+  if (onHome || onPortal) return null;
 
   return (
     <div className="pointer-events-none fixed right-4 bottom-4 z-50 flex flex-col items-end gap-3 sm:right-6 sm:bottom-6">
@@ -27,7 +28,7 @@ export function ChatWidget() {
         onClick={() => setOpen(!open)}
         aria-label={t("title")}
       >
-        <img src={withBase("/hero/mechanic.png")} alt="" className="h-full w-full object-cover object-[center_10%]" />
+        <img src={withBase("/stock/mechanic.jpg")} alt="" className="h-full w-full object-cover object-[center_20%]" />
       </button>
     </div>
   );

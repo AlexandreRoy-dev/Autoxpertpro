@@ -8,117 +8,164 @@ export function SiteFooter() {
   const tn = useTranslations("nav");
 
   return (
-    <footer className="site-footer-two">
-      <div className="site-footer-two__shape-1 float-bob-x">
-        <img src={servixaAsset("images/shapes/site-footer-two-shape-1.png")} alt="" />
-      </div>
-      <div className="container">
-        <div className="site-footer-two__top">
-          <div className="row">
-            <div className="col-xl-4 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="100ms">
-              <div className="footer-widget-two__column footer-widget-two__about">
-                <div className="footer-widget-two__logo">
-                  <ServixaLogo />
+    <footer className="site-footer">
+      <div
+        className="site-footer__bg-shape"
+        style={{ backgroundImage: `url(${servixaAsset("images/shapes/site-footer-bg-shape.png")})` }}
+      />
+      <div className="site-footer__top">
+        <div className="container">
+          <div className="site-footer__top-inner">
+            <div className="row">
+              <div className="col-xl-3 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="100ms">
+                <div className="footer-widget__column footer-widget__about">
+                  <div className="footer-widget__logo">
+                    <ServixaLogo />
+                  </div>
+                  <p className="footer-widget__about-text">{t("blurb")}</p>
+                  <div className="site-footer__social">
+                    <a href="#" aria-label="Facebook">
+                      <i className="icon-facebook-app-symbol" />
+                    </a>
+                    <a href="#" aria-label="Instagram">
+                      <i className="icon-instagram" />
+                    </a>
+                  </div>
                 </div>
-                <p className="footer-widget-two__about-text">{t("blurb")}</p>
-                <ul className="footer-widget-two__contact list-unstyled">
-                  <li>
-                    <div className="icon">
-                      <span className="icon-phone-call" />
-                    </div>
-                    <div className="content">
-                      <h5>{t("contact")}</h5>
-                      <p>
-                        <a href={`tel:${t("phone").replace(/\s/g, "")}`}>{t("phone")}</a>
-                      </p>
-                    </div>
-                  </li>
-                  <li>
-                    <div className="icon">
-                      <span className="icon-email" />
-                    </div>
-                    <div className="content">
-                      <h5>{t("email")}</h5>
-                      <p>
-                        <a href={`mailto:${t("email")}`}>{t("email")}</a>
-                      </p>
-                    </div>
-                  </li>
-                </ul>
               </div>
-            </div>
-            <div className="col-xl-2 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="200ms">
-              <div className="footer-widget-two__column footer-widget-two__usefull-link">
-                <div className="footer-widget-two__title-box">
-                  <h3 className="footer-widget-two__title">{t("company")}</h3>
-                </div>
-                <div className="footer-widget-two__link-box">
-                  <ul className="footer-widget-two__link list-unstyled">
+              <div className="col-xl-3 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="200ms">
+                <div className="footer-widget__column footer-widget__quick-link">
+                  <div className="footer-widget__title-box">
+                    <h3 className="footer-widget__title">{t("company")}</h3>
+                  </div>
+                  <ul className="footer-widget__quick-link-list list-unstyled">
                     <li>
-                      <Link href="/">{tn("home")}</Link>
+                      <Link href="/">
+                        <span className="fas fa-angle-right" />
+                        {tn("home")}
+                      </Link>
                     </li>
                     <li>
-                      <Link href="/pieces">{t("parts")}</Link>
+                      <Link href="/pieces">
+                        <span className="fas fa-angle-right" />
+                        {t("parts")}
+                      </Link>
                     </li>
                     <li>
-                      <Link href="/compte/vehicules">{t("garage")}</Link>
+                      <Link href="/blog">
+                        <span className="fas fa-angle-right" />
+                        {tn("blog")}
+                      </Link>
                     </li>
                     <li>
-                      <Link href="/compte/entretien">{t("entretien")}</Link>
+                      <Link href="/compte/vehicules">
+                        <span className="fas fa-angle-right" />
+                        {t("garage")}
+                      </Link>
                     </li>
                     <li>
-                      <Link href="/compte">{tn("account")}</Link>
+                      <Link href="/compte/entretien">
+                        <span className="fas fa-angle-right" />
+                        {t("entretien")}
+                      </Link>
+                    </li>
+                    <li>
+                      <Link href="/compte">
+                        <span className="fas fa-angle-right" />
+                        {tn("account")}
+                      </Link>
                     </li>
                   </ul>
                 </div>
               </div>
-            </div>
-            <div className="col-xl-3 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="300ms">
-              <div className="footer-widget-two__column footer-widget-two__services">
-                <div className="footer-widget-two__title-box">
-                  <h3 className="footer-widget-two__title">{t("services")}</h3>
+              <div className="col-xl-3 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="300ms">
+                <div className="footer-widget__column footer-widget__services">
+                  <div className="footer-widget__title-box">
+                    <h3 className="footer-widget__title">{t("services")}</h3>
+                  </div>
+                  <ul className="footer-widget__quick-link-list list-unstyled">
+                    <li>
+                      <Link href="/pieces/freins">
+                        <span className="fas fa-angle-right" />
+                        {t("brakes")}
+                      </Link>
+                    </li>
+                    <li>
+                      <Link href="/pieces/huile">
+                        <span className="fas fa-angle-right" />
+                        {t("oil")}
+                      </Link>
+                    </li>
+                    <li>
+                      <Link href="/pieces/filtres">
+                        <span className="fas fa-angle-right" />
+                        {t("filters")}
+                      </Link>
+                    </li>
+                    <li>
+                      <Link href="/pieces/batterie">
+                        <span className="fas fa-angle-right" />
+                        {t("battery")}
+                      </Link>
+                    </li>
+                    <li>
+                      <Link href="/pieces">
+                        <span className="fas fa-angle-right" />
+                        {t("parts")}
+                      </Link>
+                    </li>
+                  </ul>
                 </div>
-                <ul className="footer-widget-two__link list-unstyled">
-                  <li>
-                    <Link href="/pieces/freins">{t("brakes")}</Link>
-                  </li>
-                  <li>
-                    <Link href="/pieces/huile">{t("oil")}</Link>
-                  </li>
-                  <li>
-                    <Link href="/pieces/filtres">{t("filters")}</Link>
-                  </li>
-                  <li>
-                    <Link href="/pieces/batterie">{t("battery")}</Link>
-                  </li>
-                  <li>
-                    <Link href="/pieces">{t("parts")}</Link>
-                  </li>
-                </ul>
               </div>
-            </div>
-            <div className="col-xl-3 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="400ms">
-              <div className="footer-widget-two__column footer-widget-two__newsletter">
-                <h3 className="footer-widget-two__newsletter-title">{t("newsletter")}</h3>
-                <p className="footer-widget-two__about-text">{t("newsletterNote")}</p>
-                <div className="site-footer-two__social">
-                  <a href="#" aria-label="Facebook">
-                    <i className="icon-facebook-app-symbol" />
-                  </a>
-                  <a href="#" aria-label="Instagram">
-                    <i className="icon-instagram" />
-                  </a>
+              <div className="col-xl-3 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="400ms">
+                <div className="footer-widget__column footer-widget__contact">
+                  <div className="footer-widget__title-box">
+                    <h3 className="footer-widget__title">{t("contact")}</h3>
+                  </div>
+                  <ul className="footer-widget__contact-list list-unstyled">
+                    <li>
+                      <div className="icon">
+                        <span className="icon-location" />
+                      </div>
+                      <div className="content">
+                        <span>{tn("region")}</span>
+                        <p>Québec, Canada</p>
+                      </div>
+                    </li>
+                    <li>
+                      <div className="icon">
+                        <span className="icon-clock" />
+                      </div>
+                      <div className="content">
+                        <span>{tn("hours")}</span>
+                        <p>{tn("hours")}</p>
+                      </div>
+                    </li>
+                    <li>
+                      <div className="icon">
+                        <span className="icon-phone-call" />
+                      </div>
+                      <div className="content">
+                        <span>{t("contact")}</span>
+                        <p>
+                          <a href={`tel:${t("phone").replace(/\s/g, "")}`}>{t("phone")}</a>
+                          <br />
+                          <a href={`mailto:${t("email")}`}>{t("email")}</a>
+                        </p>
+                      </div>
+                    </li>
+                  </ul>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <div className="site-footer-two__bottom">
+      <div className="site-footer__bottom">
         <div className="container">
-          <div className="site-footer-two__bottom-inner">
-            <p className="site-footer-two__bottom-text">{t("rights")}</p>
-            <ul className="list-unstyled site-footer-two__bottom-menu">
+          <div className="site-footer__bottom-inner">
+            <p className="site-footer__bottom-text">{t("rights")}</p>
+            <ul className="list-unstyled site-footer__bottom-menu">
               <li>
                 <Link href="/compte">{t("vendors")}</Link>
               </li>

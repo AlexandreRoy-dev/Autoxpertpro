@@ -14,10 +14,8 @@ export function StorefrontChrome({ children }: { children: React.ReactNode }) {
   return (
     <div className="page-wrapper">
       <ServixaRuntime />
-      <div className="custom-cursor__cursor" />
-      <div className="custom-cursor__cursor-two" />
       <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden">
-        <Atmosphere variant="light" />
+        <Atmosphere variant="dark" />
       </div>
       <SiteHeader variant="storefront" />
       <main>{children}</main>

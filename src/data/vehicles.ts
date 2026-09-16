@@ -1,3 +1,5 @@
+import { cutoutForModel } from "@/data/cutouts";
+
 export type Make = {
   id: string;
   name: string;
@@ -36,8 +38,7 @@ export const vehicles: VehicleFitment[] = [
     model: "Civic",
     year: 2018,
     engine: "1.5L L4 turbo",
-    image:
-      "https://images.unsplash.com/photo-1619767886558-efdc259cde1a?auto=format&fit=crop&w=900&q=80",
+    image: cutoutForModel("Civic"),
   },
   {
     id: "honda-civic-2016-20",
@@ -46,8 +47,7 @@ export const vehicles: VehicleFitment[] = [
     model: "Civic",
     year: 2016,
     engine: "2.0L L4",
-    image:
-      "https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?auto=format&fit=crop&w=900&q=80",
+    image: cutoutForModel("Civic"),
   },
   {
     id: "toyota-rav4-2018-25",
@@ -56,8 +56,7 @@ export const vehicles: VehicleFitment[] = [
     model: "RAV4",
     year: 2018,
     engine: "2.5L L4",
-    image:
-      "https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?auto=format&fit=crop&w=900&q=80",
+    image: cutoutForModel("RAV4"),
   },
   {
     id: "toyota-corolla-2021-20",
@@ -66,8 +65,7 @@ export const vehicles: VehicleFitment[] = [
     model: "Corolla",
     year: 2021,
     engine: "2.0L L4",
-    image:
-      "https://images.unsplash.com/photo-1623869675781-80daad0b0b5d?auto=format&fit=crop&w=900&q=80",
+    image: cutoutForModel("Corolla"),
   },
   {
     id: "ford-f150-2021-35",
@@ -76,8 +74,7 @@ export const vehicles: VehicleFitment[] = [
     model: "F-150",
     year: 2021,
     engine: "3.5L V6 EcoBoost",
-    image:
-      "https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=900&q=80",
+    image: cutoutForModel("F-150"),
   },
   {
     id: "kia-rio-2009-16",
@@ -86,8 +83,7 @@ export const vehicles: VehicleFitment[] = [
     model: "Rio",
     year: 2009,
     engine: "1.6L L4",
-    image:
-      "https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?auto=format&fit=crop&w=900&q=80",
+    image: cutoutForModel("Rio"),
   },
   {
     id: "kia-sportage-2020-24",
@@ -96,8 +92,7 @@ export const vehicles: VehicleFitment[] = [
     model: "Sportage",
     year: 2020,
     engine: "2.4L L4",
-    image:
-      "https://images.unsplash.com/photo-1609521263047-f8f205293f24?auto=format&fit=crop&w=900&q=80",
+    image: cutoutForModel("Sportage"),
   },
   {
     id: "hyundai-tucson-2019-20",
@@ -106,8 +101,7 @@ export const vehicles: VehicleFitment[] = [
     model: "Tucson",
     year: 2019,
     engine: "2.0L L4",
-    image:
-      "https://images.unsplash.com/photo-1617531657526-561df529073e?auto=format&fit=crop&w=900&q=80",
+    image: cutoutForModel("Tucson"),
   },
   {
     id: "chevrolet-silverado-2020-53",
@@ -116,8 +110,7 @@ export const vehicles: VehicleFitment[] = [
     model: "Silverado",
     year: 2020,
     engine: "5.3L V8",
-    image:
-      "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=900&q=80",
+    image: cutoutForModel("Silverado"),
   },
   {
     id: "volkswagen-jetta-2019-14t",
@@ -126,8 +119,7 @@ export const vehicles: VehicleFitment[] = [
     model: "Jetta",
     year: 2019,
     engine: "1.4L L4 turbo",
-    image:
-      "https://images.unsplash.com/photo-1614200187524-dc4b892acf16?auto=format&fit=crop&w=900&q=80",
+    image: cutoutForModel("Jetta"),
   },
   {
     id: "mazda-cx5-2021-25",
@@ -136,8 +128,7 @@ export const vehicles: VehicleFitment[] = [
     model: "CX-5",
     year: 2021,
     engine: "2.5L L4",
-    image:
-      "https://images.unsplash.com/photo-1617814076367-b759c7d7e738?auto=format&fit=crop&w=900&q=80",
+    image: cutoutForModel("CX-5"),
   },
   {
     id: "nissan-rogue-2020-25",
@@ -146,8 +137,7 @@ export const vehicles: VehicleFitment[] = [
     model: "Rogue",
     year: 2020,
     engine: "2.5L L4",
-    image:
-      "https://images.unsplash.com/photo-1609521263047-f8f205293f24?auto=format&fit=crop&w=900&q=80",
+    image: cutoutForModel("Rogue"),
   },
   {
     id: "subaru-outback-2018-25",
@@ -156,8 +146,7 @@ export const vehicles: VehicleFitment[] = [
     model: "Outback",
     year: 2018,
     engine: "2.5L H4",
-    image:
-      "https://images.unsplash.com/photo-1494976388531-d1058494cdd8?auto=format&fit=crop&w=900&q=80",
+    image: cutoutForModel("Outback"),
   },
   {
     id: "ram-1500-2019-57",
@@ -166,8 +155,7 @@ export const vehicles: VehicleFitment[] = [
     model: "1500",
     year: 2019,
     engine: "5.7L V8",
-    image:
-      "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=900&q=80",
+    image: cutoutForModel("1500"),
   },
   {
     id: "jeep-wrangler-2018-36",
@@ -176,8 +164,7 @@ export const vehicles: VehicleFitment[] = [
     model: "Wrangler",
     year: 2018,
     engine: "3.6L V6",
-    image:
-      "https://images.unsplash.com/photo-1502877338535-766e1452684a?auto=format&fit=crop&w=900&q=80",
+    image: cutoutForModel("Wrangler"),
   },
 ];
 

@@ -13,7 +13,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <head>
         <ServixaAssets />
       </head>
-      <body className="custom-cursor">{children}</body>
+      <body>{children}</body>
     </html>
   );
 }

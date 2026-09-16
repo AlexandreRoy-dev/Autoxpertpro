@@ -18,18 +18,18 @@ export function ProductCard({ product }: { product: Product }) {
       href={`/pieces/${category.slug}/${product.slug}`}
       className="surface-card group block overflow-hidden rounded-2xl transition hover:-translate-y-0.5"
     >
-      <div className="flex h-44 items-center justify-center bg-[#f3eee8] p-6">
+      <div className="flex h-44 items-center justify-center bg-[#111] p-6">
         <img src={withBase(product.image)} alt="" className="h-full w-full object-contain" />
       </div>
       <div className="p-4">
-        <p className="text-xs uppercase tracking-wide text-black/45">{product.brand}</p>
-        <h3 className="mt-1 text-[15px] font-semibold leading-snug group-hover:text-orange">
+        <p className="text-xs uppercase tracking-wide text-white/45">{product.brand}</p>
+        <h3 className="mt-1 text-[15px] font-semibold leading-snug text-white group-hover:text-orange">
           {product.name[locale]}
         </h3>
         <p className="mt-3 text-lg font-semibold text-orange">
           {t("from")} {formatCad(offer.price, locale)}
         </p>
-        <p className="text-sm text-black/50">{t("offers", { count: product.offers.length })}</p>
+        <p className="text-sm text-white/50">{t("offers", { count: product.offers.length })}</p>
       </div>
     </Link>
   );

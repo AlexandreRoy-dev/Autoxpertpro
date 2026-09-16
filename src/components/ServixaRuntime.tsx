@@ -102,7 +102,7 @@ export function ServixaRuntime() {
   const pathname = usePathname();
 
   useEffect(() => {
-    document.body.classList.add("custom-cursor");
+    document.body.classList.remove("custom-cursor");
     let cancelled = false;
     void ensureScripts().then(() => {
       if (cancelled) return;

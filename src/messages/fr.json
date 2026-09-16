@@ -10,6 +10,8 @@
     "favorites": "Favoris",
     "cart": "Panier",
     "account": "Compte",
+    "blog": "Conseils",
+    "orders": "Achats",
     "home": "Accueil",
     "welcome": "Catalogue de pièces pour les conducteurs du Québec",
     "hours": "Lun – Ven : 9 h – 17 h",
@@ -51,7 +53,27 @@
     "whyTitle": "Livraison au Québec et retrait chez le marchand indiqué.",
     "vendorsCount": "Marchands réunis",
     "marcTitle": "Marc, mécanicien AutoXpert",
-    "marcBody": "Posez une question de pièce, de bruit ou d’entretien. Les réponses restent liées au catalogue."
+    "marcBody": "Posez une question de pièce, de bruit ou d’entretien. Les réponses restent liées au catalogue.",
+    "check1": "Filtrage par année, marque, modèle et moteur",
+    "check2": "Prix comparés chez plusieurs marchands",
+    "check3": "Stock indiqué avant la commande",
+    "check4": "Livraison au Québec ou retrait chez le marchand",
+    "whyMarquee": "Pourquoi AutoXpert",
+    "whyP1": "Catalogue filtré par le véhicule",
+    "whyP2": "Marc pour les questions de compatibilité",
+    "whyP3": "Fournisseur nommé sur le bon",
+    "whyP4": "Délais affichés avant le paiement",
+    "whyP5": "Prix en dollars canadiens",
+    "needHelp": "Une question de pièce? Écrivez à Marc depuis l’accueil.",
+    "blogTag": "Conseils",
+    "blogTitle": "Entretien courant pour un véhicule conduit au Québec."
+  },
+  "blog": {
+    "title": "Conseils d’entretien",
+    "lead": "Articles sur les freins, l’huile, les filtres et le catalogue. Les photos viennent de banques d’images.",
+    "read": "Lire l’article",
+    "by": "AutoXpert",
+    "relatedParts": "Pièces liées"
   },
   "picker": {
     "year": "Année",
@@ -62,7 +84,8 @@
     "vin": "NIV (optionnel)",
     "vinPlaceholder": "2HGFC1F37JH123456",
     "add": "Ajouter le véhicule",
-    "continue": "Continuer"
+    "continue": "Continuer",
+    "presets": "Véhicules déjà enregistrés"
   },
   "categories": {
     "brakes": "Freins et moyeux",
@@ -135,9 +158,23 @@
   },
   "portal": {
     "gateTitle": "Espace client",
+    "gateKicker": "Portail",
     "gateBody": "Cette version ouvre le portail sans mot de passe. Vos véhicules, l’entretien et le panier restent dans ce navigateur.",
-    "enter": "Entrer dans le portail",
-    "leave": "Quitter le portail"
+    "gateHint1": "Véhicules enregistrés dans ce navigateur",
+    "gateHint2": "Carnet d’entretien par véhicule",
+    "gateHint3": "Achats de démonstration et pièces favorites",
+    "enter": "Ouvrir l’espace client",
+    "leave": "Quitter",
+    "vehiclesStat": "Véhicules",
+    "ordersStat": "Achats",
+    "savedStat": "Favoris",
+    "navLabel": "Pages du portail",
+    "currentVehicle": "Véhicule utilisé ici",
+    "noVehicle": "Aucun véhicule sélectionné",
+    "noVehicleHint": "Ajoutez une voiture pour filtrer les pièces et le carnet.",
+    "chooseVehicle": "Changer",
+    "shopParts": "Pièces",
+    "loading": "Chargement de l’espace client…"
   },
   "garage": {
     "title": "Mes véhicules",
@@ -154,7 +191,9 @@
     "activity": "Conversations récentes",
     "activityEmpty": "Aucun fil avec un conseiller pour l’instant.",
     "empty": "Aucun véhicule dans le garage. Ajoutez-en un pour filtrer le catalogue et le carnet.",
-    "remove": "Retirer"
+    "remove": "Retirer ce véhicule",
+    "selected": "En cours",
+    "tapToSelect": "Touchez une voiture pour l’utiliser dans le portail."
   },
   "entretien": {
     "title": "Carnet d’entretien",
@@ -162,6 +201,9 @@
     "select": "Sélectionnez un véhicule",
     "type": "Type d’entretien",
     "date": "Date de l’entretien",
+    "pickDate": "Choisir une date",
+    "prevMonth": "Mois précédent",
+    "nextMonth": "Mois suivant",
     "km": "Kilométrage",
     "note": "Note optionnelle",
     "actions": "Actions",
@@ -169,6 +211,11 @@
     "intervals": "Intervalles indicatifs (référence)",
     "intervalsNote": "Ces intervalles sont des références générales. Vérifiez le manuel du propriétaire et vos conditions d’utilisation.",
     "empty": "Aucun entretien enregistré pour ce véhicule.",
+    "history": "Historique",
+    "addTitle": "Nouvel entretien",
+    "delete": "Retirer cette entrée",
+    "noVehicle": "Ajoutez ou choisissez un véhicule avant d’enregistrer un entretien.",
+    "goVehicles": "Ouvrir mes véhicules",
     "types": {
       "oil": "Huile moteur et filtre",
       "oil-filter": "Filtre à huile",
@@ -186,7 +233,9 @@
     "title": "Mes achats",
     "lead": "Commandes de démonstration liées au portail. Le suivi n’est pas branché à un transporteur.",
     "empty": "Aucune commande pour le moment.",
-    "track": "Voir le suivi",
+    "track": "Voir la pièce",
+    "placed": "Commandé le",
+    "shop": "Voir les pièces",
     "status": {
       "processing": "En préparation",
       "shipped": "En livraison",
@@ -196,7 +245,11 @@
   "account": {
     "title": "Votre compte",
     "lead": "Prototype sans authentification réelle. Le portail stocke l’état dans le navigateur.",
-    "open": "Ouvrir mes véhicules"
+    "open": "Ajouter un véhicule",
+    "vehiclesHint": "Voitures enregistrées dans ce navigateur",
+    "serviceHint": "Historique d’entretien du véhicule choisi",
+    "ordersHint": "Commandes de démonstration",
+    "savedHint": "Pièces mises de côté"
   },
   "footer": {
     "blurb": "AutoXpert réunit les catalogues de plusieurs marchands pour les conducteurs du Québec.",
@@ -234,6 +287,8 @@
     "close": "Fermer le clavardage",
     "thinking": "Un instant…",
     "portraitAlt": "Marc, le mécanicien-conseiller AutoXpert",
+    "starter": "Choisissez une question pour commencer",
+    "orType": "Ou écrivez la vôtre…",
     "s1": "Plaquettes pour mon véhicule",
     "s2": "Comparez les prix des disques",
     "s3": "Quand faire la vidange?",

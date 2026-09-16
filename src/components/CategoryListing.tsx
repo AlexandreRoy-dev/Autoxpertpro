@@ -1,7 +1,7 @@
 "use client";
 
 import { AnimIn } from "@/components/AnimIn";
-import { PageHeader } from "@/components/PageHeader";
+import { CatalogCrumbs } from "@/components/CatalogCrumbs";
 import { ProductCard } from "@/components/ProductCard";
 import { StorefrontChrome } from "@/components/StorefrontChrome";
 import type { Category } from "@/data/categories";
@@ -34,15 +34,17 @@ export function CategoryListing({ category }: { category: Category }) {
 
   return (
     <StorefrontChrome>
-      <PageHeader
-        title={tc(category.id)}
-        lead={vehicle ? `${vehicle.year} ${vehicle.make} ${vehicle.model}` : t("allVehicles")}
-        crumbs={[
-          { href: "/pieces", label: tn("parts") },
-          { href: `/pieces/${category.slug}`, label: tc(category.id) },
-        ]}
-      />
-      <div className="mx-auto max-w-6xl px-4 py-12">
+      <div className="mx-auto max-w-6xl px-4 py-8">
+        <CatalogCrumbs
+          items={[
+            { href: "/pieces", label: tn("parts") },
+            { href: `/pieces/${category.slug}`, label: tc(category.id) },
+          ]}
+        />
+        <h1 className="ax-store-title">{tc(category.id)}</h1>
+        <p className="ax-store-lead">
+          {vehicle ? `${vehicle.year} ${vehicle.make} ${vehicle.model}` : t("allVehicles")}
+        </p>
         <div className="flex flex-wrap gap-3">
           <select className="select max-w-xs" value={brand} onChange={(e) => setBrand(e.target.value)}>
             <option value="all">{t("allBrands")}</option>

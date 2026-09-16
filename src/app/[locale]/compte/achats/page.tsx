@@ -1,7 +1,6 @@
 "use client";
 
-import { PortalChrome } from "@/components/PortalChrome";
-import { PortalGate } from "@/components/PortalGate";
+import { PortalShell } from "@/components/PortalShell";
 import { getCategory } from "@/data/categories";
 import { getProduct } from "@/data/products";
 import { getVendor } from "@/data/vendors";
@@ -17,45 +16,42 @@ export default function OrdersPage() {
   const { orders } = useStore();
 
   return (
-    <PortalChrome>
-      <PortalGate>
-        <div className="mx-auto max-w-4xl px-4 py-12">
-          <h1 className="text-3xl font-semibold">{t("title")}</h1>
-          <p className="mt-2 text-white/60">{t("lead")}</p>
-          {orders.length === 0 ? (
-            <p className="mt-8 text-white/50">{t("empty")}</p>
-          ) : (
-            <div className="mt-8 space-y-3">
-              {orders.map((order) => {
-                const product = getProduct(order.productId);
-                if (!product) return null;
-                const category = getCategory(product.categoryId);
-                return (
-                  <div
-                    key={order.id}
-                    className="flex flex-col gap-4 rounded-2xl bg-[#141b2b] p-4 ring-1 ring-white/10 sm:flex-row sm:items-center"
-                  >
-                    <img src={withBase(product.image)} alt="" className="h-16 w-16 object-contain" />
-                    <div className="flex-1">
-                      <p className="font-semibold">{product.name[locale]}</p>
-                      <p className="text-sm text-white/50">
-                        {order.id} · {getVendor(order.vendorId).name} · {formatDate(order.date, locale)}
-                      </p>
-                    </div>
-                    <p className="text-sm text-white/70">{t(`status.${order.status}`)}</p>
-                    <p className="font-semibold">{formatCad(order.total, locale)}</p>
-                    {category ? (
-                      <Link href={`/pieces/${category.slug}/${product.slug}`} className="text-sm text-orange">
-                        {t("track")}
-                      </Link>
-                    ) : null}
-                  </div>
-                );
-              })}
-            </div>
-          )}
+    <PortalShell title={t("title")} lead={t("lead")}>
+      {orders.length === 0 ? (
+        <div className="ax-empty-card">
+          <p>{t("empty")}</p>
+          <Link href="/pieces" className="thm-btn">
+            {t("shop")}
+            <span className="icon-next" />
+          </Link>
         </div>
-      </PortalGate>
-    </PortalChrome>
+      ) : (
+        <ul className="ax-order-list">
+          {orders.map((order) => {
+            const product = getProduct(order.productId);
+            if (!product) return null;
+            const category = getCategory(product.categoryId);
+            return (
+              <li className="ax-order-card" key={order.id}>
+                <img src={withBase(product.image)} alt="" />
+                <div className="ax-order-card__body">
+                  <p className="ax-order-card__name">{product.name[locale]}</p>
+                  <p className="ax-order-card__meta">
+                    {t("placed")} {formatDate(order.date, locale)} · {getVendor(order.vendorId).name}
+                  </p>
+                  <p className={`ax-order-status is-${order.status}`}>{t(`status.${order.status}`)}</p>
+                </div>
+                <div className="ax-order-card__aside">
+                  <p className="ax-order-card__price">{formatCad(order.total, locale)}</p>
+                  {category ? (
+                    <Link href={`/pieces/${category.slug}/${product.slug}`}>{t("track")}</Link>
+                  ) : null}
+                </div>
+              </li>
+            );
+          })}
+        </ul>
+      )}
+    </PortalShell>
   );
 }

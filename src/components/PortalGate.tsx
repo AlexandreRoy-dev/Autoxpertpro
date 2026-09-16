@@ -8,18 +8,35 @@ export function PortalGate({ children }: { children: React.ReactNode }) {
   const { portalOpen, openPortal, hydrated } = useStore();
 
   if (!hydrated) {
-    return <div className="mx-auto max-w-6xl px-4 py-16 text-white/60">…</div>;
+    return (
+      <section className="ax-portal">
+        <div className="container">
+          <p className="ax-portal-loading">{t("loading")}</p>
+        </div>
+      </section>
+    );
   }
 
   if (!portalOpen) {
     return (
-      <div className="mx-auto max-w-xl px-4 py-20 text-center">
-        <h1 className="text-3xl font-semibold">{t("gateTitle")}</h1>
-        <p className="mt-4 text-white/70">{t("gateBody")}</p>
-        <button type="button" className="btn btn-orange mt-8" onClick={openPortal}>
-          {t("enter")}
-        </button>
-      </div>
+      <section className="ax-portal">
+        <div className="container">
+          <div className="ax-portal-gate">
+            <p className="ax-portal-gate__kicker">{t("gateKicker")}</p>
+            <h1>{t("gateTitle")}</h1>
+            <p className="ax-portal-gate__lead">{t("gateBody")}</p>
+            <ul className="ax-portal-gate__list">
+              <li>{t("gateHint1")}</li>
+              <li>{t("gateHint2")}</li>
+              <li>{t("gateHint3")}</li>
+            </ul>
+            <button type="button" className="thm-btn" onClick={openPortal}>
+              {t("enter")}
+              <span className="icon-next" />
+            </button>
+          </div>
+        </div>
+      </section>
     );
   }
 

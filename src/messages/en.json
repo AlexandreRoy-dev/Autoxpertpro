@@ -10,6 +10,8 @@
     "favorites": "Saved",
     "cart": "Cart",
     "account": "Account",
+    "blog": "Advice",
+    "orders": "Orders",
     "home": "Home",
     "welcome": "Parts catalogue for drivers in Quebec",
     "hours": "Mon – Fri: 9:00 – 17:00",
@@ -51,7 +53,27 @@
     "whyTitle": "Delivery in Quebec and pickup at the listed vendor.",
     "vendorsCount": "Vendors gathered",
     "marcTitle": "Marc, AutoXpert mechanic",
-    "marcBody": "Ask about a part, a noise or a service interval. Answers stay tied to the catalogue."
+    "marcBody": "Ask about a part, a noise or a service interval. Answers stay tied to the catalogue.",
+    "check1": "Filter by year, make, model and engine",
+    "check2": "Prices compared across several vendors",
+    "check3": "Stock shown before you order",
+    "check4": "Delivery in Quebec or pickup at the vendor",
+    "whyMarquee": "Why AutoXpert",
+    "whyP1": "Catalogue filtered by the vehicle",
+    "whyP2": "Marc for fitment questions",
+    "whyP3": "Supplier named on the receipt",
+    "whyP4": "Lead times shown before payment",
+    "whyP5": "Prices in Canadian dollars",
+    "needHelp": "A parts question? Write to Marc from the home page.",
+    "blogTag": "Advice",
+    "blogTitle": "Routine service notes for a vehicle driven in Quebec."
+  },
+  "blog": {
+    "title": "Service advice",
+    "lead": "Articles on brakes, oil, filters and the catalogue. Photos come from stock libraries.",
+    "read": "Read the article",
+    "by": "AutoXpert",
+    "relatedParts": "Related parts"
   },
   "picker": {
     "year": "Year",
@@ -62,7 +84,8 @@
     "vin": "VIN (optional)",
     "vinPlaceholder": "2HGFC1F37JH123456",
     "add": "Add vehicle",
-    "continue": "Continue"
+    "continue": "Continue",
+    "presets": "Vehicles already on file"
   },
   "categories": {
     "brakes": "Brakes & wheel hub",
@@ -135,9 +158,23 @@
   },
   "portal": {
     "gateTitle": "Customer area",
+    "gateKicker": "Portal",
     "gateBody": "This version opens the portal without a password. Your vehicles, service log and cart stay in this browser.",
-    "enter": "Enter the portal",
-    "leave": "Leave the portal"
+    "gateHint1": "Vehicles saved in this browser",
+    "gateHint2": "A service log for each vehicle",
+    "gateHint3": "Demo orders and saved parts",
+    "enter": "Open the customer area",
+    "leave": "Leave",
+    "vehiclesStat": "Vehicles",
+    "ordersStat": "Orders",
+    "savedStat": "Saved",
+    "navLabel": "Portal pages",
+    "currentVehicle": "Vehicle in use here",
+    "noVehicle": "No vehicle selected",
+    "noVehicleHint": "Add a car to filter parts and the service log.",
+    "chooseVehicle": "Change",
+    "shopParts": "Parts",
+    "loading": "Loading the customer area…"
   },
   "garage": {
     "title": "My vehicles",
@@ -154,7 +191,9 @@
     "activity": "Recent conversations",
     "activityEmpty": "No advisor threads yet.",
     "empty": "No vehicles in the garage. Add one to filter the catalogue and the service log.",
-    "remove": "Remove"
+    "remove": "Remove this vehicle",
+    "selected": "In use",
+    "tapToSelect": "Tap a car to use it in the portal."
   },
   "entretien": {
     "title": "Service log",
@@ -162,6 +201,9 @@
     "select": "Select a vehicle",
     "type": "Service type",
     "date": "Service date",
+    "pickDate": "Choose a date",
+    "prevMonth": "Previous month",
+    "nextMonth": "Next month",
     "km": "Odometer",
     "note": "Optional note",
     "actions": "Actions",
@@ -169,6 +211,11 @@
     "intervals": "Reference intervals",
     "intervalsNote": "These intervals are general references. Check the owner’s manual and how you use the car.",
     "empty": "No service recorded for this vehicle.",
+    "history": "History",
+    "addTitle": "New service entry",
+    "delete": "Remove this entry",
+    "noVehicle": "Add or choose a vehicle before recording service.",
+    "goVehicles": "Open my vehicles",
     "types": {
       "oil": "Engine oil and filter",
       "oil-filter": "Oil filter",
@@ -186,7 +233,9 @@
     "title": "My orders",
     "lead": "Demo orders attached to the portal. Tracking is not connected to a carrier.",
     "empty": "No orders yet.",
-    "track": "View tracking",
+    "track": "View the part",
+    "placed": "Ordered on",
+    "shop": "Browse parts",
     "status": {
       "processing": "Processing",
       "shipped": "Shipped",
@@ -196,7 +245,11 @@
   "account": {
     "title": "Your account",
     "lead": "Prototype without real authentication. The portal stores state in the browser.",
-    "open": "Open my vehicles"
+    "open": "Add a vehicle",
+    "vehiclesHint": "Cars saved in this browser",
+    "serviceHint": "Service history for the selected vehicle",
+    "ordersHint": "Demo orders",
+    "savedHint": "Parts you set aside"
   },
   "footer": {
     "blurb": "AutoXpert brings together several vendor catalogues for drivers in Quebec.",
@@ -234,6 +287,8 @@
     "close": "Close chat",
     "thinking": "One moment…",
     "portraitAlt": "Marc, the AutoXpert counter mechanic",
+    "starter": "Choose a question to start",
+    "orType": "Or type your own…",
     "s1": "Pads for my vehicle",
     "s2": "Compare rotor prices",
     "s3": "When should I change the oil?",

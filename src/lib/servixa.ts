@@ -18,6 +18,7 @@ export const servixaCss = [
   "/servixa/assets/css/twentytwenty.css",
   "/servixa/assets/css/style.css",
   "/servixa/assets/css/responsive.css",
+  "/servixa/assets/css/dark.css",
   "/servixa/adapt.css",
 ] as const;
 

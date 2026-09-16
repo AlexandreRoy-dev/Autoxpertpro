@@ -1,7 +1,6 @@
 "use client";
 
-import { PortalChrome } from "@/components/PortalChrome";
-import { PortalGate } from "@/components/PortalGate";
+import { PortalShell } from "@/components/PortalShell";
 import { ProductCard } from "@/components/ProductCard";
 import { getProduct } from "@/data/products";
 import { useStore } from "@/lib/store";
@@ -10,24 +9,23 @@ import { useTranslations } from "next-intl";
 export default function FavoritesPage() {
   const t = useTranslations("favorites");
   const { favorites } = useStore();
-  const products = favorites.map((id) => getProduct(id)).filter((p) => p !== undefined);
+  const products = favorites.map((id) => getProduct(id)).filter((product) => product !== undefined);
 
   return (
-    <PortalChrome>
-      <PortalGate>
-        <div className="mx-auto max-w-6xl px-4 py-12">
-          <h1 className="text-3xl font-semibold">{t("title")}</h1>
-          {products.length === 0 ? (
-            <p className="mt-6 text-white/60">{t("empty")}</p>
-          ) : (
-            <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-              {products.map((product) => (
-                <ProductCard key={product.id} product={product} />
-              ))}
-            </div>
-          )}
+    <PortalShell title={t("title")}>
+      {products.length === 0 ? (
+        <div className="ax-empty-card">
+          <p>{t("empty")}</p>
         </div>
-      </PortalGate>
-    </PortalChrome>
+      ) : (
+        <div className="row">
+          {products.map((product) => (
+            <div className="col-xl-4 col-md-6" key={product.id} style={{ marginBottom: 24 }}>
+              <ProductCard product={product} />
+            </div>
+          ))}
+        </div>
+      )}
+    </PortalShell>
   );
 }

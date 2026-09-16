@@ -11,19 +11,27 @@ export function SiteHeader({ variant }: { variant: "storefront" | "portal" }) {
   const tf = useTranslations("footer");
   const { cartCount, favorites } = useStore();
   const pathname = usePathname();
-  const links = [
-    { href: "/" as const, label: t("home") },
-    { href: "/pieces" as const, label: t("parts") },
-    { href: "/compte/vehicules" as const, label: t("vehicles") },
-    { href: "/compte/entretien" as const, label: t("service") },
-    { href: "/compte/favoris" as const, label: t("favorites") },
-  ];
+  const links =
+    variant === "portal"
+      ? [
+          { href: "/" as const, label: t("home") },
+          { href: "/pieces" as const, label: t("parts") },
+          { href: "/blog" as const, label: t("blog") },
+        ]
+      : [
+          { href: "/" as const, label: t("home") },
+          { href: "/pieces" as const, label: t("parts") },
+          { href: "/blog" as const, label: t("blog") },
+          { href: "/compte/vehicules" as const, label: t("vehicles") },
+          { href: "/compte/entretien" as const, label: t("service") },
+          { href: "/compte/favoris" as const, label: t("favorites") },
+        ];
 
   return (
-    <header className="main-header-two">
-      <div className="main-menu-two__top">
-        <div className="main-menu-two__top-inner">
-          <ul className="list-unstyled main-menu-two__contact-list">
+    <header className="main-header">
+      <div className="main-menu__top">
+        <div className="main-menu__top-inner">
+          <ul className="list-unstyled main-menu__contact-list">
             <li>
               <div className="icon">
                 <i className="icon-phone-call" />
@@ -53,33 +61,36 @@ export function SiteHeader({ variant }: { variant: "storefront" | "portal" }) {
               </div>
             </li>
           </ul>
-          <p className="main-menu-two__top-welcome-text">{t("welcome")}</p>
-          <div className="main-menu-two__top-right">
-            <div className="main-menu-two__top-time">
-              <div className="main-menu-two__top-time-icon">
+          <p className="main-menu__top-welcome-text">{t("welcome")}</p>
+          <div className="main-menu__top-right">
+            <div className="main-menu__top-time">
+              <div className="main-menu__top-time-icon">
                 <span className="fas fa-clock" />
               </div>
-              <p className="main-menu-two__top-text">{t("hours")}</p>
+              <p className="main-menu__top-text">{t("hours")}</p>
             </div>
             <LocaleSwitch light />
           </div>
         </div>
       </div>
-      <nav className="main-menu main-menu-two">
-        <div className="main-menu-two__wrapper">
-          <div className="main-menu-two__wrapper-inner">
-            <div className="main-menu-two__left">
-              <div className="main-menu-two__logo">
+      <nav className="main-menu">
+        <div className="main-menu__wrapper">
+          <div className="main-menu__wrapper-inner">
+            <div className="main-menu__left">
+              <div className="main-menu__logo">
                 <ServixaLogo />
               </div>
             </div>
-            <div className="main-menu-two__main-menu-box">
+            <div className="main-menu__main-menu-box">
               <a href="#" className="mobile-nav__toggler" aria-label="Menu">
                 <i className="fa fa-bars" />
               </a>
               <ul className="main-menu__list">
                 {links.map((link) => (
-                  <li key={link.href} className={pathname === link.href || (link.href !== "/" && pathname.startsWith(link.href)) ? "current" : undefined}>
+                  <li
+                    key={link.href}
+                    className={pathname === link.href || (link.href !== "/" && pathname.startsWith(link.href)) ? "current" : undefined}
+                  >
                     <Link href={link.href}>
                       {link.label}
                       {link.href === "/compte/favoris" && favorites.length > 0 ? ` (${favorites.length})` : null}
@@ -88,33 +99,33 @@ export function SiteHeader({ variant }: { variant: "storefront" | "portal" }) {
                 ))}
               </ul>
             </div>
-            <div className="main-menu-two__right">
-              <div className="main-menu-two__call">
-                <div className="main-menu-two__call-icon">
+            <div className="main-menu__right">
+              <div className="main-menu__call">
+                <div className="main-menu__call-icon">
                   <i className="icon-phone-call" />
                 </div>
-                <div className="main-menu-two__call-content">
-                  <p className="main-menu-two__call-sub-title">{t("callAnytime")}</p>
-                  <h5 className="main-menu-two__call-number">
+                <div className="main-menu__call-content">
+                  <p className="main-menu__call-sub-title">{t("callAnytime")}</p>
+                  <h5 className="main-menu__call-number">
                     <a href={`tel:${tf("phone").replace(/\s/g, "")}`}>{tf("phone")}</a>
                   </h5>
                 </div>
               </div>
-              <div className="main-menu-two__search-cart-box">
-                <div className="main-menu-two__search-cart-box">
-                  <div className="main-menu-two__search-box">
-                    <Link href="/pieces" className="main-menu-two__search fal fa-search" aria-label={t("parts")} />
+              <div className="main-menu__search-cart-box">
+                <div className="main-menu__search-cart-box">
+                  <div className="main-menu__search-box">
+                    <Link href="/pieces" className="main-menu__search fal fa-search" aria-label={t("parts")} />
                   </div>
-                  <div className="main-menu-two__cart-box">
-                    <Link href="/panier" className="main-menu-two__cart">
+                  <div className="main-menu__cart-box">
+                    <Link href="/panier" className="main-menu__cart">
                       <span className="far fa-shopping-cart" />
-                      <span className="main-menu-two__cart-count">{String(cartCount).padStart(2, "0")}</span>
+                      <span className="main-menu__cart-count">{String(cartCount).padStart(2, "0")}</span>
                     </Link>
                   </div>
                 </div>
               </div>
               {variant === "storefront" ? (
-                <div className="main-menu-two__btn-box">
+                <div className="main-menu__btn-box">
                   <Link href="/compte" className="thm-btn">
                     {t("account")}
                     <span>

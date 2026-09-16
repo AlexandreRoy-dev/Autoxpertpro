@@ -1,3 +1,5 @@
+import { cutouts } from "@/data/cutouts";
+import { texture } from "@/data/stock";
 import { Link } from "@/i18n/navigation";
 import { withBase } from "@/lib/paths";
 import { useTranslations } from "next-intl";
@@ -9,7 +11,7 @@ export function PageHeader({
 }: {
   title: string;
   lead?: string;
-  crumbs?: Array<{ href: "/" | "/pieces" | `/pieces/${string}` | "/panier" | "/compte"; label: string }>;
+  crumbs?: Array<{ href: string; label: string }>;
 }) {
   const t = useTranslations("nav");
 
@@ -17,12 +19,12 @@ export function PageHeader({
     <section className="page-header">
       <div
         className="page-header__bg"
-        style={{ backgroundImage: `url(${withBase("/hero/workshop.jpg")})` }}
+        style={{ backgroundImage: `url(${withBase(texture.darkGray)})` }}
       />
       <div className="container">
         <div className="page-header__inner">
           <div className="page-header__img-1">
-            <img src={withBase("/hero/mechanic.png")} alt="" />
+            <img src={withBase(cutouts.page)} alt="" />
           </div>
           <h1>{title}</h1>
           {lead ? <p className="page-header__text" style={{ marginTop: 12 }}>{lead}</p> : null}
@@ -34,7 +36,7 @@ export function PageHeader({
               {crumbs?.map((crumb) => (
                 <li key={crumb.href}>
                   <span className="fas fa-angle-right" />
-                  <Link href={crumb.href as "/pieces"}>{crumb.label}</Link>
+                  <Link href={crumb.href as "/blog"}>{crumb.label}</Link>
                 </li>
               ))}
               <li>
