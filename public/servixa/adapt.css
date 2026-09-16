@@ -87,9 +87,13 @@ body {
   overflow: visible;
 }
 
-.main-slider__bg {
-  background-size: cover;
-  background-position: center;
+.main-slider__bg,
+.page-header__bg,
+.why-choose-one__right-bg,
+.why-choose-one__right-bg-color,
+.page-header {
+  background: #232323 !important;
+  background-image: none !important;
 }
 
 .main-slider .swiper-slide-active .main-slider__img,
