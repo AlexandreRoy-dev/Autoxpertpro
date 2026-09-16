@@ -1,5 +1,4 @@
 import { cutouts } from "@/data/cutouts";
-import { texture } from "@/data/stock";
 import { Link } from "@/i18n/navigation";
 import { withBase } from "@/lib/paths";
 import { useTranslations } from "next-intl";
@@ -17,10 +16,7 @@ export function PageHeader({
 
   return (
     <section className="page-header">
-      <div
-        className="page-header__bg"
-        style={{ backgroundImage: `url(${withBase(texture.darkGray)})` }}
-      />
+      <div className="page-header__bg" />
       <div className="container">
         <div className="page-header__inner">
           <div className="page-header__img-1">

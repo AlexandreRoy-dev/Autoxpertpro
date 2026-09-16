@@ -22,6 +22,7 @@ type JQueryStatic = ((sel?: unknown) => {
   trigger: (name: string) => void;
   each: (fn: (this: Element) => void) => void;
   data: (key: string, val?: unknown) => unknown;
+  off: (name: string) => unknown;
   parent: () => { hasClass: (name: string) => boolean };
 }) & { fn?: Record<string, unknown> };
 
@@ -107,9 +108,11 @@ export function ServixaRuntime() {
     void ensureScripts().then(() => {
       if (cancelled) return;
       cloneMenus();
+      window.jQuery?.(".mobile-nav__toggler").off("click");
       if (!window.__axServixaBooted) {
         window.__axServixaBooted = true;
         window.jQuery?.(window).trigger("load");
+        window.jQuery?.(".mobile-nav__toggler").off("click");
       } else {
         refreshMotion();
       }

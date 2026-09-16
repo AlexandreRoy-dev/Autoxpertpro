@@ -55,7 +55,6 @@ export function Atmosphere({ variant = "light" }: { variant?: "light" | "dark" }
           }}
         />
       </div>
-      <div className="grain" />
     </div>
   );
 }

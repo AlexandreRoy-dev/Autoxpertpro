@@ -1,6 +1,7 @@
 "use client";
 
 import { LocaleSwitch } from "@/components/LocaleSwitch";
+import { MobileNavToggle } from "@/components/MobileNav";
 import { ServixaLogo } from "@/components/ServixaLogo";
 import { Link, usePathname } from "@/i18n/navigation";
 import { useStore } from "@/lib/store";
@@ -82,9 +83,7 @@ export function SiteHeader({ variant }: { variant: "storefront" | "portal" }) {
               </div>
             </div>
             <div className="main-menu__main-menu-box">
-              <a href="#" className="mobile-nav__toggler" aria-label="Menu">
-                <i className="fa fa-bars" />
-              </a>
+              <MobileNavToggle />
               <ul className="main-menu__list">
                 {links.map((link) => (
                   <li

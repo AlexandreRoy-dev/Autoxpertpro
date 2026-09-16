@@ -35,7 +35,7 @@ export default function HomePage() {
         <div className="swiper-container">
           <div className="swiper-wrapper">
             <div className="swiper-slide swiper-slide-active">
-              <div className="main-slider__bg" style={{ backgroundImage: `url(${withBase(texture.darkGray)})` }} />
+              <div className="main-slider__bg" />
               <div className="main-slider__img">
                 <img src={withBase("/cutouts/hero-car.png")} alt="" />
               </div>
@@ -252,7 +252,7 @@ export default function HomePage() {
           </li>
         </ul>
         <div className="why-choose-one__right-bg-color" />
-        <div className="why-choose-one__right-bg" style={{ backgroundImage: `url(${withBase(texture.darkGray)})` }} />
+        <div className="why-choose-one__right-bg" />
         <div className="container">
           <div className="row">
             <div className="col-xl-6">
