@@ -87,7 +87,8 @@
     "vinPlaceholder": "2HGFC1F37JH123456",
     "add": "Ajouter le véhicule",
     "continue": "Continuer",
-    "presets": "Véhicules déjà enregistrés"
+    "presets": "Véhicules déjà enregistrés",
+    "morePresets": "{count} autres véhicules"
   },
   "categories": {
     "brakes": "Freins et moyeux",

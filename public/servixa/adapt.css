@@ -138,10 +138,9 @@ body {
 
 .ax-picker-presets__list {
   display: flex;
+  flex-wrap: wrap;
+  align-items: center;
   gap: 8px;
-  overflow-x: auto;
-  padding-bottom: 4px;
-  -webkit-overflow-scrolling: touch;
 }
 
 .ax-picker-preset {
@@ -167,6 +166,21 @@ body {
 .ax-picker-preset.is-active {
   border-color: #fa5003;
   background: rgba(250, 80, 3, 0.16);
+}
+
+.ax-picker-more {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 44px;
+  min-height: 44px;
+  padding: 0 12px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 999px;
+  background: #0a0a0a;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
 }
 
 .main-slider__chat {

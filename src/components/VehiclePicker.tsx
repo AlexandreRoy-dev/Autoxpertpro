@@ -48,7 +48,10 @@ export function VehiclePicker({
   const t = useTranslations("picker");
   const [fields, setFields] = useState<Fields>(() => fieldsFromFitment(initialFitmentId));
   const [vin, setVin] = useState(initialVin);
+  const [showAllPresets, setShowAllPresets] = useState(false);
   const { makeId, year, model, fitmentId } = fields;
+  const visiblePresets = showAllPresets ? presets : presets.slice(0, 2);
+  const extraPresets = Math.max(0, presets.length - 2);
 
   useEffect(() => {
     setFields(fieldsFromFitment(initialFitmentId));
@@ -85,7 +88,7 @@ export function VehiclePicker({
         <div className="ax-picker-presets md:col-span-2">
           <p className={dark ? "mb-2 text-sm text-white/70" : "mb-2 text-sm text-muted"}>{t("presets")}</p>
           <div className="ax-picker-presets__list">
-            {presets.map((item) => {
+            {visiblePresets.map((item) => {
               const vehicle = getVehicle(item.fitmentId);
               if (!vehicle) return null;
               const active = fitmentId === vehicle.id;
@@ -103,6 +106,16 @@ export function VehiclePicker({
                 </button>
               );
             })}
+            {extraPresets > 0 && !showAllPresets ? (
+              <button
+                type="button"
+                className="ax-picker-more"
+                onClick={() => setShowAllPresets(true)}
+                aria-label={t("morePresets", { count: extraPresets })}
+              >
+                ({extraPresets})+
+              </button>
+            ) : null}
           </div>
         </div>
       ) : null}

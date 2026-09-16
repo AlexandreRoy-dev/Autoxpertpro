@@ -87,7 +87,8 @@
     "vinPlaceholder": "2HGFC1F37JH123456",
     "add": "Add vehicle",
     "continue": "Continue",
-    "presets": "Vehicles already on file"
+    "presets": "Vehicles already on file",
+    "morePresets": "{count} more vehicles"
   },
   "categories": {
     "brakes": "Brakes & wheel hub",
