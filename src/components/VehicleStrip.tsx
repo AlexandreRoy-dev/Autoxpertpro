@@ -3,7 +3,6 @@
 import { getVehicle } from "@/data/vehicles";
 import { withBase } from "@/lib/paths";
 import type { GarageVehicle } from "@/lib/store";
-import { useTranslations } from "next-intl";
 
 export function VehicleStrip({
   garage,
@@ -14,33 +13,27 @@ export function VehicleStrip({
   selectedId: string | null;
   onSelect: (id: string) => void;
 }) {
-  const t = useTranslations("entretien");
-
-  if (garage.length === 0) return null;
-
   return (
-    <div className="ax-vehicle-strip" role="listbox" aria-label={t("select")}>
+    <div className="flex gap-3 overflow-x-auto pb-2">
       {garage.map((item) => {
         const vehicle = getVehicle(item.fitmentId);
         if (!vehicle) return null;
         const active = item.id === selectedId;
         return (
           <button
-            type="button"
-            role="option"
-            aria-selected={active}
             key={item.id}
-            className={`ax-vehicle-chip${active ? " is-active" : ""}`}
+            type="button"
             onClick={() => onSelect(item.id)}
+            className={`card flex min-w-[220px] items-center gap-3 p-3 text-left ${
+              active ? "border-accent" : ""
+            }`}
           >
-            <img src={withBase(vehicle.image)} alt="" />
+            <img src={withBase(vehicle.image)} alt="" className="h-12 w-16 object-contain" />
             <span>
-              <strong>
-                {vehicle.make} {vehicle.model}
+              <strong className="block text-sm">
+                {vehicle.year} {vehicle.make} {vehicle.model}
               </strong>
-              <small>
-                {vehicle.year} · {vehicle.engine}
-              </small>
+              <small className="text-muted">{vehicle.engine}</small>
             </span>
           </button>
         );

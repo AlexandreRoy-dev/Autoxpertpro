@@ -1,6 +1,7 @@
 "use client";
 
-import { PortalShell } from "@/components/PortalShell";
+import { PageIntro } from "@/components/PageIntro";
+import { PortalGate } from "@/components/PortalGate";
 import { getVehicle } from "@/data/vehicles";
 import { Link } from "@/i18n/navigation";
 import { withBase } from "@/lib/paths";
@@ -15,76 +16,55 @@ export default function AccountPage() {
   const selected = garage.find((item) => item.id === selectedGarageId);
   const vehicle = selected ? getVehicle(selected.fitmentId) : null;
 
-  return (
-    <PortalShell title={t("title")} lead={t("lead")}>
-      {vehicle ? (
-        <div className="ax-current-vehicle">
-          <img src={withBase(vehicle.image)} alt="" />
-          <div>
-            <p className="ax-current-vehicle__kicker">{tp("currentVehicle")}</p>
-            <p className="ax-current-vehicle__name">
-              {vehicle.year} {vehicle.make} {vehicle.model}
-            </p>
-            <p className="ax-current-vehicle__meta">{vehicle.engine}</p>
-          </div>
-          <Link href="/compte/vehicules" className="ax-portal-text-btn">
-            {tp("chooseVehicle")}
-          </Link>
-        </div>
-      ) : (
-        <div className="ax-current-vehicle ax-current-vehicle--empty">
-          <div>
-            <p className="ax-current-vehicle__kicker">{tp("noVehicle")}</p>
-            <p className="ax-current-vehicle__meta">{tp("noVehicleHint")}</p>
-          </div>
-          <Link href="/compte/vehicules" className="thm-btn">
-            {t("open")}
-            <span className="icon-next" />
-          </Link>
-        </div>
-      )}
+  const tiles = [
+    { href: "/compte/vehicules" as const, title: tn("vehicles"), hint: t("vehiclesHint"), count: garage.length },
+    { href: "/compte/entretien" as const, title: tn("service"), hint: t("serviceHint") },
+    { href: "/compte/achats" as const, title: tn("orders"), hint: t("ordersHint"), count: orders.length },
+    { href: "/compte/favoris" as const, title: tn("favorites"), hint: t("savedHint"), count: favorites.length },
+  ];
 
-      <nav className="ax-portal-tiles" aria-label={tp("navLabel")}>
-        <Link href="/compte/vehicules" className="ax-portal-tile">
-          <span className="ax-portal-tile__icon" aria-hidden>
-            <i className="fal fa-car" />
-          </span>
-          <span className="ax-portal-tile__body">
-            <strong>{tn("vehicles")}</strong>
-            <small>{t("vehiclesHint")}</small>
-          </span>
-          <em>{garage.length}</em>
-        </Link>
-        <Link href="/compte/entretien" className="ax-portal-tile">
-          <span className="ax-portal-tile__icon" aria-hidden>
-            <i className="far fa-clipboard-list-check" />
-          </span>
-          <span className="ax-portal-tile__body">
-            <strong>{tn("service")}</strong>
-            <small>{t("serviceHint")}</small>
-          </span>
-        </Link>
-        <Link href="/compte/achats" className="ax-portal-tile">
-          <span className="ax-portal-tile__icon" aria-hidden>
-            <i className="fal fa-shopping-bag" />
-          </span>
-          <span className="ax-portal-tile__body">
-            <strong>{tn("orders")}</strong>
-            <small>{t("ordersHint")}</small>
-          </span>
-          <em>{orders.length}</em>
-        </Link>
-        <Link href="/compte/favoris" className="ax-portal-tile">
-          <span className="ax-portal-tile__icon" aria-hidden>
-            <i className="far fa-heart" />
-          </span>
-          <span className="ax-portal-tile__body">
-            <strong>{tn("favorites")}</strong>
-            <small>{t("savedHint")}</small>
-          </span>
-          <em>{favorites.length}</em>
-        </Link>
-      </nav>
-    </PortalShell>
+  return (
+    <PortalGate>
+      <div className="wrap py-12">
+        <PageIntro title={t("title")} lead={t("lead")} />
+        {vehicle ? (
+          <div className="card mb-8 flex flex-col items-start gap-4 p-5 sm:flex-row sm:items-center">
+            <img src={withBase(vehicle.image)} alt="" className="h-16 w-24 object-contain" />
+            <div className="flex-1">
+              <p className="text-sm text-muted">{tp("currentVehicle")}</p>
+              <p className="font-semibold">
+                {vehicle.year} {vehicle.make} {vehicle.model}
+              </p>
+              <p className="text-sm text-muted">{vehicle.engine}</p>
+            </div>
+            <Link href="/compte/vehicules" className="text-sm text-accent">
+              {tp("chooseVehicle")}
+            </Link>
+          </div>
+        ) : (
+          <div className="card mb-8 flex flex-col items-start justify-between gap-4 p-5 sm:flex-row sm:items-center">
+            <div>
+              <p className="font-semibold">{tp("noVehicle")}</p>
+              <p className="text-sm text-muted">{tp("noVehicleHint")}</p>
+            </div>
+            <Link href="/compte/vehicules" className="btn btn-accent">
+              {t("open")}
+            </Link>
+          </div>
+        )}
+
+        <nav className="grid gap-4 sm:grid-cols-2" aria-label={tp("navLabel")}>
+          {tiles.map((tile) => (
+            <Link key={tile.href} href={tile.href} className="card flex items-center justify-between p-5">
+              <span>
+                <strong className="block">{tile.title}</strong>
+                <small className="text-muted">{tile.hint}</small>
+              </span>
+              {tile.count !== undefined ? <em className="not-italic text-lg font-semibold">{tile.count}</em> : null}
+            </Link>
+          ))}
+        </nav>
+      </div>
+    </PortalGate>
   );
 }

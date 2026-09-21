@@ -292,9 +292,23 @@
     "portraitAlt": "Marc, le mécanicien-conseiller AutoXpert",
     "starter": "Choisissez une question pour commencer",
     "orType": "Ou écrivez la vôtre…",
+    "you": "Vous",
     "s1": "Plaquettes pour mon véhicule",
     "s2": "Comparez les prix des disques",
     "s3": "Quand faire la vidange?",
     "s4": "Comment les marchands sont réunis?"
+  },
+  "rail": {
+    "kicker": "Contexte",
+    "title": "Pièces à commander",
+    "noVehicle": "Aucun véhicule sélectionné",
+    "changeVehicle": "Changer de véhicule",
+    "empty": "Décrivez une pièce dans le clavardage. Les offres apparaîtront ici.",
+    "buy": "Commander cette pièce",
+    "add": "Ajouter au panier",
+    "added": "Ajouté au panier",
+    "details": "Voir la fiche",
+    "openCart": "Ouvrir le panier",
+    "cartCount": "{count, plural, one {# article dans le panier} other {# articles dans le panier}}"
   }
 }

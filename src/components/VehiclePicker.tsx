@@ -30,7 +30,6 @@ type Props = {
   onSelect: (fitmentId: string, vin?: string) => void;
   submitLabel: string;
   showVin?: boolean;
-  dark?: boolean;
   initialFitmentId?: string | null;
   initialVin?: string;
   presets?: GarageVehicle[];
@@ -40,7 +39,6 @@ export function VehiclePicker({
   onSelect,
   submitLabel,
   showVin = false,
-  dark = false,
   initialFitmentId = null,
   initialVin = "",
   presets = [],
@@ -85,9 +83,9 @@ export function VehiclePicker({
       }}
     >
       {presets.length > 0 ? (
-        <div className="ax-picker-presets md:col-span-2">
-          <p className={dark ? "mb-2 text-sm text-white/70" : "mb-2 text-sm text-muted"}>{t("presets")}</p>
-          <div className="ax-picker-presets__list">
+        <div className="md:col-span-2">
+          <p className="mb-2 text-sm text-muted">{t("presets")}</p>
+          <div className="flex flex-wrap gap-2">
             {visiblePresets.map((item) => {
               const vehicle = getVehicle(item.fitmentId);
               if (!vehicle) return null;
@@ -96,10 +94,12 @@ export function VehiclePicker({
                 <button
                   type="button"
                   key={item.id}
-                  className={`ax-picker-preset${active ? " is-active" : ""}`}
+                  className={`card flex items-center gap-2 px-3 py-2 text-left text-sm ${
+                    active ? "border-accent" : ""
+                  }`}
                   onClick={() => applyFitment(vehicle.id, item.vin || "")}
                 >
-                  <img src={withBase(vehicle.image)} alt="" />
+                  <img src={withBase(vehicle.image)} alt="" className="h-8 w-12 object-contain" />
                   <span>
                     {vehicle.year} {vehicle.make} {vehicle.model}
                   </span>
@@ -109,7 +109,7 @@ export function VehiclePicker({
             {extraPresets > 0 && !showAllPresets ? (
               <button
                 type="button"
-                className="ax-picker-more"
+                className="text-sm text-muted"
                 onClick={() => setShowAllPresets(true)}
                 aria-label={t("morePresets", { count: extraPresets })}
               >
@@ -120,9 +120,9 @@ export function VehiclePicker({
         </div>
       ) : null}
       <label className="text-sm">
-        <span className={dark ? "mb-1 block text-white/70" : "mb-1 block text-muted"}>{t("make")}</span>
+        <span className="mb-1 block text-muted">{t("make")}</span>
         <select
-          className="select ignore"
+          className="select"
           value={makeId}
           onChange={(e) => {
             setFields({ makeId: e.target.value, year: "", model: "", fitmentId: "" });
@@ -137,9 +137,9 @@ export function VehiclePicker({
         </select>
       </label>
       <label className="text-sm">
-        <span className={dark ? "mb-1 block text-white/70" : "mb-1 block text-muted"}>{t("year")}</span>
+        <span className="mb-1 block text-muted">{t("year")}</span>
         <select
-          className="select ignore"
+          className="select"
           value={year}
           disabled={!makeId}
           onChange={(e) => {
@@ -155,9 +155,9 @@ export function VehiclePicker({
         </select>
       </label>
       <label className="text-sm">
-        <span className={dark ? "mb-1 block text-white/70" : "mb-1 block text-muted"}>{t("model")}</span>
+        <span className="mb-1 block text-muted">{t("model")}</span>
         <select
-          className="select ignore"
+          className="select"
           value={model}
           disabled={!year}
           onChange={(e) => {
@@ -173,9 +173,9 @@ export function VehiclePicker({
         </select>
       </label>
       <label className="text-sm">
-        <span className={dark ? "mb-1 block text-white/70" : "mb-1 block text-muted"}>{t("engine")}</span>
+        <span className="mb-1 block text-muted">{t("engine")}</span>
         <select
-          className="select ignore"
+          className="select"
           value={fitmentId}
           disabled={!model}
           onChange={(e) => setFields((prev) => ({ ...prev, fitmentId: e.target.value }))}
@@ -190,7 +190,7 @@ export function VehiclePicker({
       </label>
       {showVin ? (
         <label className="text-sm md:col-span-2">
-          <span className={dark ? "mb-1 block text-white/70" : "mb-1 block text-muted"}>{t("vin")}</span>
+          <span className="mb-1 block text-muted">{t("vin")}</span>
           <input
             className="input"
             value={vin}
@@ -200,7 +200,7 @@ export function VehiclePicker({
         </label>
       ) : null}
       <div className="md:col-span-2">
-        <button type="submit" className="btn btn-orange w-full md:w-auto" disabled={!fitmentId}>
+        <button type="submit" className="btn btn-accent w-full md:w-auto" disabled={!fitmentId}>
           {submitLabel}
         </button>
       </div>

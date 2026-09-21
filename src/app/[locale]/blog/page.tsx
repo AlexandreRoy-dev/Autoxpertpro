@@ -1,5 +1,4 @@
-import { PageHeader } from "@/components/PageHeader";
-import { StorefrontChrome } from "@/components/StorefrontChrome";
+import { PageIntro } from "@/components/PageIntro";
 import { posts } from "@/data/posts";
 import { Link } from "@/i18n/navigation";
 import { routing, type Locale } from "@/i18n/routing";
@@ -17,51 +16,25 @@ export default async function BlogIndexPage({ params }: { params: Promise<{ loca
   const t = await getTranslations("blog");
 
   return (
-    <StorefrontChrome>
-      <PageHeader title={t("title")} lead={t("lead")} />
-      <section className="blog-one ax-store-page">
-        <div className="container">
-          <div className="row">
-            {posts.map((post, index) => (
-              <div className="col-xl-4 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay={`${(index % 3) + 1}00ms`} key={post.slug}>
-                <div className="blog-one__single">
-                  <div className="blog-one__single-inner">
-                    <div className="blog-one__img-box">
-                      <div className="blog-one__img">
-                        <img src={withBase(post.image)} alt="" />
-                        <div className="blog-one__tags">
-                          <span>{post.tag[lang]}</span>
-                        </div>
-                      </div>
-                      <div className="blog-one__date">
-                        <p>
-                          {post.day} <span>{post.month[lang]}</span>
-                        </p>
-                      </div>
-                    </div>
-                    <div className="blog-one__content">
-                      <ul className="blog-one__meta list-unstyled">
-                        <li>
-                          <span className="fas fa-user" /> {t("by")}
-                        </li>
-                      </ul>
-                      <h3 className="blog-one__title">
-                        <Link href={`/blog/${post.slug}`}>{post.title[lang]}</Link>
-                      </h3>
-                      <p className="blog-one__text">{post.excerpt[lang]}</p>
-                    </div>
-                  </div>
-                  <div className="blog-one__read-more-box">
-                    <Link href={`/blog/${post.slug}`} className="blog-one__read-more">
-                      {t("read")} <span className="fas fa-arrow-right" />
-                    </Link>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-    </StorefrontChrome>
+    <div className="wrap py-12">
+      <PageIntro title={t("title")} lead={t("lead")} />
+      <div className="grid gap-6 md:grid-cols-3">
+        {posts.map((post) => (
+          <article key={post.slug} className="card overflow-hidden">
+            <img src={withBase(post.image)} alt="" className="h-40 w-full object-cover" />
+            <div className="p-4">
+              <p className="text-xs text-muted">{post.tag[lang]}</p>
+              <h2 className="mt-2 font-semibold">
+                <Link href={`/blog/${post.slug}`}>{post.title[lang]}</Link>
+              </h2>
+              <p className="mt-2 text-sm text-muted">{post.excerpt[lang]}</p>
+              <Link href={`/blog/${post.slug}`} className="mt-3 inline-block text-sm text-accent">
+                {t("read")}
+              </Link>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
   );
 }

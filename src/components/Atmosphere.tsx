@@ -26,8 +26,8 @@ export function Atmosphere({ variant = "light" }: { variant?: "light" | "dark" }
     };
   }, []);
 
-  const a = variant === "dark" ? "rgba(241,90,34,0.16)" : "rgba(241,90,34,0.14)";
-  const b = variant === "dark" ? "rgba(80,120,200,0.12)" : "rgba(20,40,80,0.06)";
+  const a = variant === "dark" ? "rgba(250,80,3,0.18)" : "rgba(250,80,3,0.12)";
+  const b = variant === "dark" ? "rgba(80,120,200,0.12)" : "rgba(28,25,21,0.06)";
 
   return (
     <div className="atmosphere pointer-events-none absolute inset-0 overflow-hidden" aria-hidden>
@@ -55,6 +55,7 @@ export function Atmosphere({ variant = "light" }: { variant?: "light" | "dark" }
           }}
         />
       </div>
+      <div className="grain" />
     </div>
   );
 }

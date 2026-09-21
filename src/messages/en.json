@@ -292,9 +292,23 @@
     "portraitAlt": "Marc, the AutoXpert counter mechanic",
     "starter": "Choose a question to start",
     "orType": "Or type your own…",
+    "you": "You",
     "s1": "Pads for my vehicle",
     "s2": "Compare rotor prices",
     "s3": "When should I change the oil?",
     "s4": "How are vendors gathered?"
+  },
+  "rail": {
+    "kicker": "Context",
+    "title": "Parts to buy",
+    "noVehicle": "No vehicle selected",
+    "changeVehicle": "Change vehicle",
+    "empty": "Describe a part in the chat. Offers will show up here.",
+    "buy": "Order this part",
+    "add": "Add to cart",
+    "added": "Added to cart",
+    "details": "View the product page",
+    "openCart": "Open the cart",
+    "cartCount": "{count, plural, one {# item in the cart} other {# items in the cart}}"
   }
 }

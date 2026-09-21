@@ -1,9 +1,8 @@
 "use client";
 
 import { AnimIn } from "@/components/AnimIn";
-import { CatalogCrumbs } from "@/components/CatalogCrumbs";
+import { PageIntro } from "@/components/PageIntro";
 import { ProductCard } from "@/components/ProductCard";
-import { StorefrontChrome } from "@/components/StorefrontChrome";
 import type { Category } from "@/data/categories";
 import { productsForCategory } from "@/data/products";
 import { getVehicle } from "@/data/vehicles";
@@ -28,51 +27,43 @@ export function CategoryListing({ category }: { category: Category }) {
     });
   }, [category.id, selectedFitmentId, brand, inStockOnly]);
 
-  const brands = [
-    ...new Set(productsForCategory(category.id, selectedFitmentId).map((p) => p.brand)),
-  ];
+  const brands = [...new Set(productsForCategory(category.id, selectedFitmentId).map((p) => p.brand))];
 
   return (
-    <StorefrontChrome>
-      <div className="ax-store-page">
-      <div className="container">
-        <CatalogCrumbs
-          items={[
-            { href: "/pieces", label: tn("parts") },
-            { href: `/pieces/${category.slug}`, label: tc(category.id) },
-          ]}
-        />
-        <h1 className="ax-store-title">{tc(category.id)}</h1>
-        <p className="ax-store-lead">
-          {vehicle ? `${vehicle.year} ${vehicle.make} ${vehicle.model}` : t("allVehicles")}
-        </p>
-        <div className="flex flex-wrap gap-3">
-          <select className="select max-w-xs" value={brand} onChange={(e) => setBrand(e.target.value)}>
-            <option value="all">{t("allBrands")}</option>
-            {brands.map((name) => (
-              <option key={name} value={name}>
-                {name}
-              </option>
-            ))}
-          </select>
-          <label className="flex items-center gap-2 text-sm">
-            <input type="checkbox" checked={inStockOnly} onChange={(e) => setInStockOnly(e.target.checked)} />
-            {t("stockFilter")}
-          </label>
+    <div className="wrap py-12">
+      <PageIntro
+        title={tc(category.id)}
+        lead={vehicle ? `${vehicle.year} ${vehicle.make} ${vehicle.model}` : t("allVehicles")}
+        crumbs={[
+          { href: "/pieces", label: tn("parts") },
+          { href: `/pieces/${category.slug}`, label: tc(category.id) },
+        ]}
+      />
+      <div className="flex flex-wrap gap-3">
+        <select className="select max-w-xs" value={brand} onChange={(e) => setBrand(e.target.value)}>
+          <option value="all">{t("allBrands")}</option>
+          {brands.map((name) => (
+            <option key={name} value={name}>
+              {name}
+            </option>
+          ))}
+        </select>
+        <label className="flex items-center gap-2 text-sm">
+          <input type="checkbox" checked={inStockOnly} onChange={(e) => setInStockOnly(e.target.checked)} />
+          {t("stockFilter")}
+        </label>
+      </div>
+      {list.length === 0 ? (
+        <p className="mt-10 text-muted">{t("empty")}</p>
+      ) : (
+        <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {list.map((product, index) => (
+            <AnimIn key={product.id} delay={index * 0.05}>
+              <ProductCard product={product} />
+            </AnimIn>
+          ))}
         </div>
-        {list.length === 0 ? (
-          <p className="mt-10 text-black/55">{t("empty")}</p>
-        ) : (
-          <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {list.map((product, index) => (
-              <AnimIn key={product.id} delay={index * 0.05}>
-                <ProductCard product={product} />
-              </AnimIn>
-            ))}
-          </div>
-        )}
-      </div>
-      </div>
-    </StorefrontChrome>
+      )}
+    </div>
   );
 }

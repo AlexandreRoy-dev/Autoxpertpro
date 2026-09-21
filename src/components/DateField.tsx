@@ -83,20 +83,19 @@ export function DateField({
   };
 
   return (
-    <div className="ax-datefield" ref={rootRef}>
+    <div className="datefield" ref={rootRef}>
       <button
         type="button"
-        className={`ax-datefield__trigger${value ? "" : " is-empty"}`}
+        className="datefield-trigger"
         aria-haspopup="dialog"
         aria-expanded={open}
         onClick={() => setOpen((current) => !current)}
       >
-        <span>{value ? formatDate(value, locale) : t("pickDate")}</span>
-        <i className="far fa-calendar-alt" aria-hidden />
+        <span className={value ? "" : "text-muted"}>{value ? formatDate(value, locale) : t("pickDate")}</span>
       </button>
       {open ? (
-        <div className="ax-datepicker" role="dialog" aria-label={t("date")}>
-          <div className="ax-datepicker__nav">
+        <div className="datepicker" role="dialog" aria-label={t("date")}>
+          <div className="datepicker-nav">
             <button type="button" onClick={() => shiftMonth(-1)} aria-label={t("prevMonth")}>
               ‹
             </button>
@@ -105,18 +104,18 @@ export function DateField({
               ›
             </button>
           </div>
-          <div className="ax-datepicker__week">
+          <div className="datepicker-week">
             {weekdays.map((day) => (
               <span key={day}>{day}</span>
             ))}
           </div>
-          <div className="ax-datepicker__grid">
+          <div className="datepicker-grid">
             {days.map((cell, index) =>
               cell ? (
                 <button
                   type="button"
                   key={cell.key}
-                  className={`ax-datepicker__day${cell.key === value ? " is-selected" : ""}`}
+                  className={`datepicker-day${cell.key === value ? " is-selected" : ""}`}
                   onClick={() => {
                     onChange(cell.key);
                     setOpen(false);

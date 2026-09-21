@@ -1,6 +1,7 @@
 "use client";
 
-import { PortalShell } from "@/components/PortalShell";
+import { PageIntro } from "@/components/PageIntro";
+import { PortalGate } from "@/components/PortalGate";
 import { ProductCard } from "@/components/ProductCard";
 import { getProduct } from "@/data/products";
 import { useStore } from "@/lib/store";
@@ -12,20 +13,19 @@ export default function FavoritesPage() {
   const products = favorites.map((id) => getProduct(id)).filter((product) => product !== undefined);
 
   return (
-    <PortalShell title={t("title")}>
-      {products.length === 0 ? (
-        <div className="ax-empty-card">
-          <p>{t("empty")}</p>
-        </div>
-      ) : (
-        <div className="row">
-          {products.map((product) => (
-            <div className="col-xl-4 col-md-6" key={product.id} style={{ marginBottom: 24 }}>
-              <ProductCard product={product} />
-            </div>
-          ))}
-        </div>
-      )}
-    </PortalShell>
+    <PortalGate>
+      <div className="wrap py-12">
+        <PageIntro title={t("title")} />
+        {products.length === 0 ? (
+          <p className="text-muted">{t("empty")}</p>
+        ) : (
+          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {products.map((product) => (
+              <ProductCard key={product.id} product={product} />
+            ))}
+          </div>
+        )}
+      </div>
+    </PortalGate>
   );
 }

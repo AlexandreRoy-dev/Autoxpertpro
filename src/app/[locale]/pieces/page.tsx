@@ -1,8 +1,7 @@
 "use client";
 
 import { AnimIn } from "@/components/AnimIn";
-import { CatalogCrumbs } from "@/components/CatalogCrumbs";
-import { StorefrontChrome } from "@/components/StorefrontChrome";
+import { PageIntro } from "@/components/PageIntro";
 import { categories } from "@/data/categories";
 import { productsForVehicle } from "@/data/products";
 import { getVehicle } from "@/data/vehicles";
@@ -21,34 +20,24 @@ export default function PiecesIndexPage() {
   );
 
   return (
-    <StorefrontChrome>
-      <section className="ax-store-page">
-        <div className="container">
-        <CatalogCrumbs items={[{ href: "/pieces", label: t("title") }]} />
-        <h1 className="ax-store-title">{t("title")}</h1>
-        <p className="ax-store-lead">
-          {vehicle ? `${vehicle.year} ${vehicle.make} ${vehicle.model} · ${vehicle.engine}` : t("allVehicles")}
-        </p>
-        <div className="row">
-          {visible.map((category, index) => (
-            <div className="col-xl-4 col-md-6" key={category.id} style={{ marginBottom: 24 }}>
-            <AnimIn delay={index * 0.06}>
-              <Link
-                href={`/pieces/${category.slug}`}
-                className="surface-card block rounded-2xl p-5 transition hover:-translate-y-0.5 hover:text-orange"
-              >
+    <div className="wrap py-12">
+      <PageIntro
+        title={t("title")}
+        lead={vehicle ? `${vehicle.year} ${vehicle.make} ${vehicle.model} · ${vehicle.engine}` : t("allVehicles")}
+      />
+      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        {visible.map((category, index) => {
+          const count = available.filter((p) => p.categoryId === category.id).length;
+          return (
+            <AnimIn key={category.id} delay={index * 0.06}>
+              <Link href={`/pieces/${category.slug}`} className="card block p-5 hover:border-ink">
                 <h2 className="font-semibold">{tc(category.id)}</h2>
-                <p className="mt-1 text-sm text-black/50">
-                  {available.filter((p) => p.categoryId === category.id).length}{" "}
-                  {available.filter((p) => p.categoryId === category.id).length > 1 ? "pièces" : "pièce"}
-                </p>
+                <p className="mt-1 text-sm text-muted">{count}</p>
               </Link>
             </AnimIn>
-            </div>
-          ))}
-        </div>
-        </div>
-      </section>
-    </StorefrontChrome>
+          );
+        })}
+      </div>
+    </div>
   );
 }

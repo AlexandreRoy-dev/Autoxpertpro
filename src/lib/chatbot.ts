@@ -11,7 +11,37 @@ export type ChatLink = { href: string; label: string };
 export type ChatReply = {
   text: string;
   links?: ChatLink[];
+  productIds?: string[];
 };
+
+function findProducts(raw: string, ctx: ChatContext): Product[] {
+  const query = norm(raw);
+  const pool = productsForVehicle(ctx.vehicle?.id);
+  if (!query || /bonjour|salut|allo|hello|hi\b|hey\b/.test(query)) {
+    const preferred = ["brakes", "oil", "filters", "battery"] as const;
+    const picks: Product[] = [];
+    for (const cat of preferred) {
+      const hit = pool.find((product) => product.categoryId === cat && !picks.includes(product));
+      if (hit) picks.push(hit);
+    }
+    return picks.length ? picks : pool.slice(0, 5);
+  }
+
+  const ranked = pool
+    .map((product) => ({ product, score: scoreProduct(product, query, ctx.locale) }))
+    .filter((row) => row.score > 0)
+    .sort((a, b) => b.score - a.score)
+    .map((row) => row.product);
+
+  const category = matchingCategory(query);
+  const fromCategory = category ? pool.filter((product) => product.categoryId === category.id) : [];
+  const found = ranked.length ? ranked : fromCategory;
+  return found.slice(0, 6);
+}
+
+export function recommendParts(raw: string, ctx: ChatContext): Product[] {
+  return findProducts(raw, ctx);
+}
 
 export type ChatContext = {
   locale: "fr" | "en";
@@ -87,7 +117,6 @@ function vehicleLine(vehicle: VehicleFitment | null, locale: "fr" | "en") {
 export function answerChat(raw: string, ctx: ChatContext): ChatReply {
   const { locale, vehicle, cartCount, orders } = ctx;
   const query = norm(raw);
-  const pool = productsForVehicle(vehicle?.id);
   const fr = locale === "fr";
 
   if (/bonjour|salut|allo|hello|hi\b|hey\b/.test(query)) {
@@ -174,19 +203,11 @@ export function answerChat(raw: string, ctx: ChatContext): ChatReply {
     };
   }
 
-  const ranked = pool
-    .map((product) => ({ product, score: scoreProduct(product, query, locale) }))
-    .filter((row) => row.score > 0)
-    .sort((a, b) => b.score - a.score)
-    .map((row) => row.product);
-
+  const found = findProducts(raw, ctx);
   const category = matchingCategory(query);
-  const fromCategory = category
-    ? pool.filter((product) => product.categoryId === category.id)
-    : [];
-  const found = ranked.length ? ranked : fromCategory;
+  const queryLooksLikePart = Boolean(category) || found.some((item) => scoreProduct(item, query, locale) > 0);
 
-  if (found.length) {
+  if (found.length && queryLooksLikePart) {
     const top = found[0];
     const offer = bestOffer(top);
     const others = [...top.offers].sort((a, b) => a.price - b.price);
@@ -196,14 +217,10 @@ export function answerChat(raw: string, ctx: ChatContext): ChatReply {
 
     return {
       text: fr
-        ? `Pour ${vehicleLine(vehicle, locale)}, je retiens surtout ${top.brand} ${top.name.fr} (${top.partNumber}). Meilleure offre en stock : ${formatCad(offer.price, locale)} chez ${getVendor(offer.vendorId).name}. Autres marchands : ${offerLines}.`
-        : `For ${vehicleLine(vehicle, locale)}, the closest match is ${top.brand} ${top.name.en} (${top.partNumber}). Best in-stock offer: ${formatCad(offer.price, locale)} at ${getVendor(offer.vendorId).name}. Other vendors: ${offerLines}.`,
-      links: [
-        ...productLinks(found, locale),
-        category
-          ? { href: `/pieces/${category.slug}`, label: fr ? "Toute la catégorie" : "Whole category" }
-          : { href: "/pieces", label: fr ? "Catalogue" : "Catalogue" },
-      ],
+        ? `Pour ${vehicleLine(vehicle, locale)}, je retiens surtout ${top.brand} ${top.name.fr} (${top.partNumber}). Meilleure offre en stock : ${formatCad(offer.price, locale)} chez ${getVendor(offer.vendorId).name}. Autres marchands : ${offerLines}. Les offres sont à droite.`
+        : `For ${vehicleLine(vehicle, locale)}, the closest match is ${top.brand} ${top.name.en} (${top.partNumber}). Best in-stock offer: ${formatCad(offer.price, locale)} at ${getVendor(offer.vendorId).name}. Other vendors: ${offerLines}. Offers are on the right.`,
+      links: productLinks(found, locale),
+      productIds: found.map((item) => item.id),
     };
   }
 
@@ -231,8 +248,8 @@ export function greeting(ctx: ChatContext): ChatReply {
   const fr = ctx.locale === "fr";
   return {
     text: fr
-      ? `Marc, mécanicien AutoXpert. Je compare les offres et je confirme la compatibilité. Véhicule en cours : ${vehicleLine(ctx.vehicle, ctx.locale)}.`
-      : `Marc, AutoXpert mechanic. I compare offers and check fitment. Current vehicle: ${vehicleLine(ctx.vehicle, ctx.locale)}.`,
+      ? `Bonjour. Je suis Marc, le conseiller AutoXpert. Véhicule en cours : ${vehicleLine(ctx.vehicle, ctx.locale)}. Décrivez la pièce ou le bruit; les offres compatibles s’affichent à droite.`
+      : `Hello. I’m Marc, the AutoXpert advisor. Current vehicle: ${vehicleLine(ctx.vehicle, ctx.locale)}. Describe the part or the noise; matching offers appear on the right.`,
   };
 }
 

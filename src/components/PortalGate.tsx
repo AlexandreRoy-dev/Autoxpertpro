@@ -9,34 +9,29 @@ export function PortalGate({ children }: { children: React.ReactNode }) {
 
   if (!hydrated) {
     return (
-      <section className="ax-portal">
-        <div className="container">
-          <p className="ax-portal-loading">{t("loading")}</p>
-        </div>
-      </section>
+      <div className="wrap py-20">
+        <p className="text-muted">{t("loading")}</p>
+      </div>
     );
   }
 
   if (!portalOpen) {
     return (
-      <section className="ax-portal">
-        <div className="container">
-          <div className="ax-portal-gate">
-            <p className="ax-portal-gate__kicker">{t("gateKicker")}</p>
-            <h1>{t("gateTitle")}</h1>
-            <p className="ax-portal-gate__lead">{t("gateBody")}</p>
-            <ul className="ax-portal-gate__list">
-              <li>{t("gateHint1")}</li>
-              <li>{t("gateHint2")}</li>
-              <li>{t("gateHint3")}</li>
-            </ul>
-            <button type="button" className="thm-btn" onClick={openPortal}>
-              {t("enter")}
-              <span className="icon-next" />
-            </button>
-          </div>
+      <div className="wrap py-16">
+        <div className="card max-w-xl p-8">
+          <p className="text-sm text-muted">{t("gateKicker")}</p>
+          <h1 className="display mt-2 text-3xl">{t("gateTitle")}</h1>
+          <p className="mt-4 text-muted">{t("gateBody")}</p>
+          <ul className="mt-6 list-disc space-y-2 pl-5 text-sm text-ink">
+            <li>{t("gateHint1")}</li>
+            <li>{t("gateHint2")}</li>
+            <li>{t("gateHint3")}</li>
+          </ul>
+          <button type="button" className="btn btn-accent mt-8" onClick={openPortal}>
+            {t("enter")}
+          </button>
         </div>
-      </section>
+      </div>
     );
   }
 

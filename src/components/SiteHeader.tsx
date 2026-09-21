@@ -1,142 +1,41 @@
 "use client";
 
 import { LocaleSwitch } from "@/components/LocaleSwitch";
-import { MobileNavToggle } from "@/components/MobileNav";
-import { ServixaLogo } from "@/components/ServixaLogo";
-import { Link, usePathname } from "@/i18n/navigation";
+import { Logo } from "@/components/Logo";
+import { Link } from "@/i18n/navigation";
+import { getVehicle } from "@/data/vehicles";
 import { useStore } from "@/lib/store";
 import { useTranslations } from "next-intl";
 
-export function SiteHeader({ variant }: { variant: "storefront" | "portal" }) {
+export function SiteHeader() {
   const t = useTranslations("nav");
-  const tf = useTranslations("footer");
-  const { cartCount, favorites } = useStore();
-  const pathname = usePathname();
-  const links =
-    variant === "portal"
-      ? [
-          { href: "/" as const, label: t("home") },
-          { href: "/pieces" as const, label: t("parts") },
-          { href: "/blog" as const, label: t("blog") },
-        ]
-      : [
-          { href: "/" as const, label: t("home") },
-          { href: "/pieces" as const, label: t("parts") },
-          { href: "/blog" as const, label: t("blog") },
-          { href: "/compte/vehicules" as const, label: t("vehicles") },
-          { href: "/compte/entretien" as const, label: t("service") },
-          { href: "/compte/favoris" as const, label: t("favorites") },
-        ];
+  const { cartCount, hydrated, selectedFitmentId } = useStore();
+  const items = hydrated ? cartCount : 0;
+  const vehicle = selectedFitmentId ? getVehicle(selectedFitmentId) : null;
 
   return (
-    <header className="main-header">
-      <div className="main-menu__top">
-        <div className="main-menu__top-inner">
-          <ul className="list-unstyled main-menu__contact-list">
-            <li>
-              <div className="icon">
-                <i className="icon-phone-call" />
-              </div>
-              <div className="text">
-                <p>
-                  <a href={`tel:${tf("phone").replace(/\s/g, "")}`}>{tf("phone")}</a>
-                </p>
-              </div>
-            </li>
-            <li>
-              <div className="icon">
-                <i className="icon-email" />
-              </div>
-              <div className="text">
-                <p>
-                  <a href={`mailto:${tf("email")}`}>{tf("email")}</a>
-                </p>
-              </div>
-            </li>
-            <li>
-              <div className="icon">
-                <i className="icon-location1" />
-              </div>
-              <div className="text">
-                <p>{t("region")}</p>
-              </div>
-            </li>
-          </ul>
-          <p className="main-menu__top-welcome-text">{t("welcome")}</p>
-          <div className="main-menu__top-right">
-            <div className="main-menu__top-time">
-              <div className="main-menu__top-time-icon">
-                <span className="fas fa-clock" />
-              </div>
-              <p className="main-menu__top-text">{t("hours")}</p>
-            </div>
-            <LocaleSwitch light />
-          </div>
+    <header className="z-40 shrink-0 bg-header text-[#f3eee6]">
+      <div className="flex items-center justify-between gap-4 px-4 py-3">
+        <div className="flex min-w-0 items-center gap-4">
+          <Logo light />
+          {vehicle ? (
+            <p className="hidden truncate text-sm text-[#f3eee6]/70 sm:block">
+              {vehicle.year} {vehicle.make} {vehicle.model}
+            </p>
+          ) : null}
+        </div>
+        <div className="flex items-center gap-3 text-sm">
+          <Link href="/compte/vehicules">{t("vehicles")}</Link>
+          <Link href="/compte/entretien" className="hidden sm:inline">
+            {t("service")}
+          </Link>
+          <Link href="/panier">
+            {t("cart")}
+            {items > 0 ? <span className="ml-1 text-accent">{items}</span> : null}
+          </Link>
+          <LocaleSwitch light />
         </div>
       </div>
-      <nav className="main-menu">
-        <div className="main-menu__wrapper">
-          <div className="main-menu__wrapper-inner">
-            <div className="main-menu__left">
-              <div className="main-menu__logo">
-                <ServixaLogo />
-              </div>
-            </div>
-            <div className="main-menu__main-menu-box">
-              <MobileNavToggle />
-              <ul className="main-menu__list">
-                {links.map((link) => (
-                  <li
-                    key={link.href}
-                    className={pathname === link.href || (link.href !== "/" && pathname.startsWith(link.href)) ? "current" : undefined}
-                  >
-                    <Link href={link.href}>
-                      {link.label}
-                      {link.href === "/compte/favoris" && favorites.length > 0 ? ` (${favorites.length})` : null}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div className="main-menu__right">
-              <div className="main-menu__call">
-                <div className="main-menu__call-icon">
-                  <i className="icon-phone-call" />
-                </div>
-                <div className="main-menu__call-content">
-                  <p className="main-menu__call-sub-title">{t("callAnytime")}</p>
-                  <h5 className="main-menu__call-number">
-                    <a href={`tel:${tf("phone").replace(/\s/g, "")}`}>{tf("phone")}</a>
-                  </h5>
-                </div>
-              </div>
-              <div className="main-menu__search-cart-box">
-                <div className="main-menu__search-cart-box">
-                  <div className="main-menu__search-box">
-                    <Link href="/pieces" className="main-menu__search fal fa-search" aria-label={t("parts")} />
-                  </div>
-                  <div className="main-menu__cart-box">
-                    <Link href="/panier" className="main-menu__cart">
-                      <span className="far fa-shopping-cart" />
-                      <span className="main-menu__cart-count">{String(cartCount).padStart(2, "0")}</span>
-                    </Link>
-                  </div>
-                </div>
-              </div>
-              {variant === "storefront" ? (
-                <div className="main-menu__btn-box">
-                  <Link href="/compte" className="thm-btn">
-                    {t("account")}
-                    <span>
-                      <i className="icon-next" />
-                    </span>
-                  </Link>
-                </div>
-              ) : null}
-            </div>
-          </div>
-        </div>
-      </nav>
     </header>
   );
 }

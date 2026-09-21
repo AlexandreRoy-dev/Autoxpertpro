@@ -1,5 +1,5 @@
-import { ChatWidget } from "@/components/ChatWidget";
 import { HtmlLang } from "@/components/HtmlLang";
+import { Shell } from "@/components/Shell";
 import { routing } from "@/i18n/routing";
 import { ChatProvider } from "@/lib/chat";
 import { StoreProvider } from "@/lib/store";
@@ -28,8 +28,7 @@ export default async function LocaleLayout({
       <StoreProvider>
         <ChatProvider>
           <HtmlLang locale={locale} />
-          {children}
-          <ChatWidget />
+          <Shell>{children}</Shell>
         </ChatProvider>
       </StoreProvider>
     </NextIntlClientProvider>

@@ -14,22 +14,19 @@ export function ProductCard({ product }: { product: Product }) {
   const category = categories.find((c) => c.id === product.categoryId)!;
 
   return (
-    <Link
-      href={`/pieces/${category.slug}/${product.slug}`}
-      className="surface-card group block overflow-hidden rounded-2xl transition hover:-translate-y-0.5"
-    >
-      <div className="flex h-44 items-center justify-center bg-[#111] p-6">
+    <Link href={`/pieces/${category.slug}/${product.slug}`} className="card group block overflow-hidden">
+      <div className="flex h-44 items-center justify-center bg-paper p-6">
         <img src={withBase(product.image)} alt="" className="h-full w-full object-contain" />
       </div>
       <div className="p-4">
-        <p className="text-xs uppercase tracking-wide text-white/45">{product.brand}</p>
-        <h3 className="mt-1 text-[15px] font-semibold leading-snug text-white group-hover:text-orange">
+        <p className="text-xs uppercase tracking-wide text-muted">{product.brand}</p>
+        <h3 className="mt-1 text-[15px] font-semibold leading-snug group-hover:text-accent">
           {product.name[locale]}
         </h3>
-        <p className="mt-3 text-lg font-semibold text-orange">
+        <p className="mt-3 text-lg font-semibold">
           {t("from")} {formatCad(offer.price, locale)}
         </p>
-        <p className="text-sm text-white/50">{t("offers", { count: product.offers.length })}</p>
+        <p className="text-sm text-muted">{t("offers", { count: product.offers.length })}</p>
       </div>
     </Link>
   );
