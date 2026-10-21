@@ -1,43 +1,33 @@
-"use client";
+import { PiecesIndex } from "@/components/PiecesIndex";
+import { routing, type Locale } from "@/i18n/routing";
+import { pageMetadata } from "@/lib/seo";
+import type { Metadata } from "next";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 
-import { AnimIn } from "@/components/AnimIn";
-import { PageIntro } from "@/components/PageIntro";
-import { categories } from "@/data/categories";
-import { productsForVehicle } from "@/data/products";
-import { getVehicle } from "@/data/vehicles";
-import { Link } from "@/i18n/navigation";
-import { useStore } from "@/lib/store";
-import { useTranslations } from "next-intl";
+export function generateStaticParams() {
+  return routing.locales.map((locale) => ({ locale }));
+}
 
-export default function PiecesIndexPage() {
-  const t = useTranslations("catalog");
-  const tc = useTranslations("categories");
-  const { selectedFitmentId } = useStore();
-  const vehicle = selectedFitmentId ? getVehicle(selectedFitmentId) : null;
-  const available = productsForVehicle(selectedFitmentId);
-  const visible = categories.filter((category) =>
-    available.some((product) => product.categoryId === category.id),
-  );
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const lang: Locale = locale === "en" ? "en" : "fr";
+  setRequestLocale(lang);
+  const catalog = await getTranslations({ locale: lang, namespace: "catalog" });
+  const home = await getTranslations({ locale: lang, namespace: "home" });
+  return pageMetadata({
+    locale: lang,
+    path: "/pieces",
+    title: `${catalog("title")} | AutoXpert`,
+    description: home("lead"),
+  });
+}
 
-  return (
-    <div className="wrap py-12">
-      <PageIntro
-        title={t("title")}
-        lead={vehicle ? `${vehicle.year} ${vehicle.make} ${vehicle.model} · ${vehicle.engine}` : t("allVehicles")}
-      />
-      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        {visible.map((category, index) => {
-          const count = available.filter((p) => p.categoryId === category.id).length;
-          return (
-            <AnimIn key={category.id} delay={index * 0.06}>
-              <Link href={`/pieces/${category.slug}`} className="card block p-5 hover:border-ink">
-                <h2 className="font-semibold">{tc(category.id)}</h2>
-                <p className="mt-1 text-sm text-muted">{count}</p>
-              </Link>
-            </AnimIn>
-          );
-        })}
-      </div>
-    </div>
-  );
+export default async function PiecesPage({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  setRequestLocale(locale === "en" ? "en" : "fr");
+  return <PiecesIndex />;
 }

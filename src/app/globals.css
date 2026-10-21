@@ -43,6 +43,18 @@ h3,
   letter-spacing: -0.02em;
 }
 
+/* Greeting used as the page h1. Matches the chat paragraph so the layout stays the same. */
+h1.plain-copy {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.625;
+  letter-spacing: normal;
+  white-space: pre-wrap;
+  color: inherit;
+}
+
 @keyframes fade-up {
   from {
     opacity: 0;

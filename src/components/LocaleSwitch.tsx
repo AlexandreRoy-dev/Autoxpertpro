@@ -1,21 +1,17 @@
 "use client";
 
-import { usePathname, useRouter } from "@/i18n/navigation";
+import { Link, usePathname } from "@/i18n/navigation";
 import { useLocale } from "next-intl";
 
 export function LocaleSwitch({ light = false }: { light?: boolean }) {
   const locale = useLocale();
   const pathname = usePathname();
-  const router = useRouter();
-
-  const setLocale = (next: "fr" | "en") => {
-    router.replace(pathname, { locale: next });
-  };
 
   const btn = (code: "fr" | "en") => (
-    <button
-      type="button"
-      onClick={() => setLocale(code)}
+    <Link
+      href={pathname}
+      locale={code}
+      hrefLang={code === "fr" ? "fr-CA" : "en-CA"}
       className={`px-1.5 text-xs font-semibold ${
         locale === code
           ? light
@@ -27,7 +23,7 @@ export function LocaleSwitch({ light = false }: { light?: boolean }) {
       }`}
     >
       {code.toUpperCase()}
-    </button>
+    </Link>
   );
 
   return (

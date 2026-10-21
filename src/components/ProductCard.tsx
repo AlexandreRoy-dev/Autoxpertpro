@@ -16,7 +16,7 @@ export function ProductCard({ product }: { product: Product }) {
   return (
     <Link href={`/pieces/${category.slug}/${product.slug}`} className="card group block overflow-hidden">
       <div className="flex h-44 items-center justify-center bg-paper p-6">
-        <img src={withBase(product.image)} alt="" className="h-full w-full object-contain" />
+        <img src={withBase(product.image)} alt={product.name[locale]} className="h-full w-full object-contain" />
       </div>
       <div className="p-4">
         <p className="text-xs uppercase tracking-wide text-muted">{product.brand}</p>

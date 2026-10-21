@@ -99,7 +99,11 @@ export function VehiclePicker({
                   }`}
                   onClick={() => applyFitment(vehicle.id, item.vin || "")}
                 >
-                  <img src={withBase(vehicle.image)} alt="" className="h-8 w-12 object-contain" />
+                  <img
+                    src={withBase(vehicle.image)}
+                    alt={`${vehicle.year} ${vehicle.make} ${vehicle.model}`}
+                    className="h-8 w-12 object-contain"
+                  />
                   <span>
                     {vehicle.year} {vehicle.make} {vehicle.model}
                   </span>

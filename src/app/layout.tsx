@@ -1,3 +1,4 @@
+import { SITE, messagesFor } from "@/lib/seo";
 import { Geist, Newsreader } from "next/font/google";
 import type { Metadata } from "next";
 import "./globals.css";
@@ -12,9 +13,12 @@ const news = Newsreader({
   variable: "--font-news",
 });
 
+const french = messagesFor("fr");
+
 export const metadata: Metadata = {
-  title: "AutoXpert",
-  description: "Pièces d’auto de plusieurs marchands, pour le véhicule que vous conduisez.",
+  metadataBase: new URL(SITE),
+  title: { absolute: french.meta.title },
+  description: french.meta.description,
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

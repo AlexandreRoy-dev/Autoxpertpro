@@ -52,7 +52,7 @@ export function ProductDetail({ product }: { product: Product }) {
 
       <div className="grid gap-10 md:grid-cols-2">
         <div className="card flex min-h-[280px] items-center justify-center p-8">
-          <img src={withBase(product.image)} alt="" className="max-h-80 w-full object-contain" />
+          <img src={withBase(product.image)} alt={product.name[locale]} className="max-h-80 w-full object-contain" />
         </div>
 
         <div>
@@ -171,7 +171,7 @@ export function ProductDetail({ product }: { product: Product }) {
               const price = bestOffer(item);
               return (
                 <Link key={item.id} href={`/pieces/${itemCat.slug}/${item.slug}`} className="card p-4">
-                  <img src={withBase(item.image)} alt="" className="mb-3 h-24 w-full object-contain" />
+                  <img src={withBase(item.image)} alt={item.name[locale]} className="mb-3 h-24 w-full object-contain" />
                   <p className="text-sm font-semibold">{item.name[locale]}</p>
                   <small className="text-muted">{formatCad(price.price, locale)}</small>
                 </Link>

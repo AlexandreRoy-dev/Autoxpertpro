@@ -35,7 +35,7 @@ export default function OrdersPage() {
               const category = getCategory(product.categoryId);
               return (
                 <li className="card flex flex-col gap-4 p-4 sm:flex-row sm:items-center" key={order.id}>
-                  <img src={withBase(product.image)} alt="" className="h-16 w-16 object-contain" />
+                  <img src={withBase(product.image)} alt={product.name[locale]} className="h-16 w-16 object-contain" />
                   <div className="flex-1">
                     <p className="font-semibold">{product.name[locale]}</p>
                     <p className="text-sm text-muted">

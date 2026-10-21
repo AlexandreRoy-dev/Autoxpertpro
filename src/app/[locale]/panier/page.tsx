@@ -54,7 +54,7 @@ export default function CartPage() {
                 key={`${item.productId}-${item.vendorId}`}
                 className="card flex flex-col gap-4 p-4 sm:flex-row sm:items-center"
               >
-                <img src={withBase(product.image)} alt="" className="h-20 w-20 object-contain" />
+                <img src={withBase(product.image)} alt={product.name[locale]} className="h-20 w-20 object-contain" />
                 <div className="flex-1">
                   <Link href={`/pieces/${category.slug}/${product.slug}`} className="font-semibold">
                     {product.name[locale]}

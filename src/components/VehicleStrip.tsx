@@ -28,7 +28,11 @@ export function VehicleStrip({
               active ? "border-accent" : ""
             }`}
           >
-            <img src={withBase(vehicle.image)} alt="" className="h-12 w-16 object-contain" />
+            <img
+              src={withBase(vehicle.image)}
+              alt={`${vehicle.year} ${vehicle.make} ${vehicle.model}`}
+              className="h-12 w-16 object-contain"
+            />
             <span>
               <strong className="block text-sm">
                 {vehicle.year} {vehicle.make} {vehicle.model}

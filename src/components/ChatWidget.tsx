@@ -109,7 +109,7 @@ export function ChatWidget() {
         onClick={() => setOpen(!open)}
         aria-label={t("title")}
       >
-        <img src={withBase("/stock/mechanic.jpg")} alt="" className="h-full w-full object-cover object-[center_20%]" />
+        <img src={withBase("/stock/mechanic.jpg")} alt={t("portraitAlt")} className="h-full w-full object-cover object-[center_20%]" />
       </button>
     </div>
   );
