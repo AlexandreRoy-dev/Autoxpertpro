@@ -3,11 +3,33 @@ import { getPost, posts } from "@/data/posts";
 import { Link } from "@/i18n/navigation";
 import { routing, type Locale } from "@/i18n/routing";
 import { withBase } from "@/lib/paths";
+import { clip, pageMetadata } from "@/lib/seo";
+import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 
 export function generateStaticParams() {
   return routing.locales.flatMap((locale) => posts.map((post) => ({ locale, slug: post.slug })));
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string; slug: string }>;
+}): Promise<Metadata> {
+  const { locale, slug } = await params;
+  const lang: Locale = locale === "en" ? "en" : "fr";
+  setRequestLocale(lang);
+  const post = getPost(slug);
+  if (!post) return {};
+  return pageMetadata({
+    locale: lang,
+    path: `/blog/${post.slug}`,
+    title: `${post.title[lang]} | AutoXpert`,
+    description: clip(post.excerpt[lang]),
+    image: post.image,
+    imageAlt: post.title[lang],
+  });
 }
 
 export default async function BlogArticlePage({
@@ -26,7 +48,7 @@ export default async function BlogArticlePage({
   return (
     <div className="wrap py-12">
       <PageIntro title={post.title[lang]} crumbs={[{ href: "/blog", label: t("title") }]} />
-      <img src={withBase(post.image)} alt="" className="mb-8 h-72 w-full rounded-md object-cover" />
+      <img src={withBase(post.image)} alt={post.title[lang]} className="mb-8 h-72 w-full rounded-md object-cover" />
       <p className="text-sm text-muted">
         {t("by")} · {post.tag[lang]}
       </p>

@@ -29,7 +29,11 @@ export default function AccountPage() {
         <PageIntro title={t("title")} lead={t("lead")} />
         {vehicle ? (
           <div className="card mb-8 flex flex-col items-start gap-4 p-5 sm:flex-row sm:items-center">
-            <img src={withBase(vehicle.image)} alt="" className="h-16 w-24 object-contain" />
+            <img
+              src={withBase(vehicle.image)}
+              alt={`${vehicle.year} ${vehicle.make} ${vehicle.model}`}
+              className="h-16 w-24 object-contain"
+            />
             <div className="flex-1">
               <p className="text-sm text-muted">{tp("currentVehicle")}</p>
               <p className="font-semibold">

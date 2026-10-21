@@ -67,7 +67,7 @@ export function PartsRail() {
                   }`}
                   onClick={() => setSelectedProductId(product.id)}
                 >
-                  <img src={withBase(product.image)} alt="" className="h-12 w-12 object-contain" />
+                  <img src={withBase(product.image)} alt={product.name[locale]} className="h-12 w-12 object-contain" />
                   <span className="min-w-0 flex-1">
                     <strong className="block truncate text-sm">{product.name[locale]}</strong>
                     <small className="text-muted">

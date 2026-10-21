@@ -48,7 +48,11 @@ export default function VehiclesPage() {
                       className={`card flex w-full items-center gap-4 p-4 text-left ${active ? "border-accent" : ""}`}
                       aria-pressed={active}
                     >
-                      <img src={withBase(vehicle.image)} alt="" className="h-12 w-16 object-contain" />
+                      <img
+                        src={withBase(vehicle.image)}
+                        alt={`${vehicle.year} ${vehicle.make} ${vehicle.model}`}
+                        className="h-12 w-16 object-contain"
+                      />
                       <span className="flex-1">
                         <strong className="block">
                           {vehicle.make} {vehicle.model}
@@ -69,7 +73,11 @@ export default function VehiclesPage() {
 
         {fitment && selected ? (
           <div className="card mt-8 p-6">
-            <img src={withBase(fitment.image)} alt="" className="mb-4 h-24 w-36 object-contain" />
+            <img
+              src={withBase(fitment.image)}
+              alt={`${fitment.year} ${fitment.make} ${fitment.model}`}
+              className="mb-4 h-24 w-36 object-contain"
+            />
             <p className="text-sm text-muted">{t("primary")}</p>
             <h2 className="display text-2xl">
               {fitment.make} {fitment.model}

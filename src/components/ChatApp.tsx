@@ -45,7 +45,11 @@ export function ChatApp() {
                       : "rounded-md bg-card px-4 py-3"
                   }
                 >
-                  <p className="whitespace-pre-wrap leading-relaxed">{message.text}</p>
+                  {message.role === "assistant" && message.id === "hello" ? (
+                    <h1 className="plain-copy">{message.text}</h1>
+                  ) : (
+                    <p className="whitespace-pre-wrap leading-relaxed">{message.text}</p>
+                  )}
                 </div>
               </div>
             ))}

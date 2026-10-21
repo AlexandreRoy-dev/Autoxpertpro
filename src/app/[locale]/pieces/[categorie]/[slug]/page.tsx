@@ -1,7 +1,10 @@
 import { ProductDetail } from "@/components/ProductDetail";
 import { categories, getCategory } from "@/data/categories";
 import { getProduct, products } from "@/data/products";
-import { routing } from "@/i18n/routing";
+import { routing, type Locale } from "@/i18n/routing";
+import { clip, pageMetadata } from "@/lib/seo";
+import type { Metadata } from "next";
+import { setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 
 export function generateStaticParams() {
@@ -14,12 +17,32 @@ export function generateStaticParams() {
   );
 }
 
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string; categorie: string; slug: string }>;
+}): Promise<Metadata> {
+  const { locale, categorie, slug } = await params;
+  const lang: Locale = locale === "en" ? "en" : "fr";
+  setRequestLocale(lang);
+  const category = categories.find((item) => item.slug === categorie);
+  const product = getProduct(slug);
+  if (!category || !product) return {};
+  return pageMetadata({
+    locale: lang,
+    path: `/pieces/${category.slug}/${product.slug}`,
+    title: `${product.name[lang]} | AutoXpert`,
+    description: clip(product.description[lang]),
+  });
+}
+
 export default async function ProductPage({
   params,
 }: {
-  params: Promise<{ categorie: string; slug: string }>;
+  params: Promise<{ locale: string; categorie: string; slug: string }>;
 }) {
-  const { categorie, slug } = await params;
+  const { locale, categorie, slug } = await params;
+  setRequestLocale(locale === "en" ? "en" : "fr");
   if (!categories.some((c) => c.slug === categorie)) notFound();
   const product = getProduct(slug);
   if (!product) notFound();
